@@ -1,0 +1,21 @@
+    React : 
+* is library not framework
+* Focus on UI not Routing(1) or HTTP Requests
+* Has a Rich EcoSystem(2)
+* Has a component Based Architecture(3)
+* is Declarative(4)
+* will handle updating and rendering of the components
+* will handle DOM updates
+
+
+notes:
+[1] Routing : is a technology for switching between different UI views, based on the changes of the current URL
+[2] Rich EcoSystem : the interesting features and libraries that are available to use with React
+[3] component Based Architecture : let you to break down the Application into small encapsulated parts then you can compose them and you has the ability also to reuse these components
+[4] Declarative : Tell the React what you want and will build the actual UI
+    ** Difference between Declarative programming and Imperative programming: 
+    Declarative programming is a paradigm describing WHAT the program does, without explicitly specifying its control flow.
+    Imperative programming is a paradigm describing HOW the program should do something by explicitly specifying each instruction (or statement) step by step.
+
+    **Redux : Redux is a state management library (is a predictable state container for JavaScript apps ) that you can use with any JS library or framework like React, Angular, or Vue.
+    https://www.freecodecamp.org/news/what-is-redux-store-actions-reducers-explained/amp/
