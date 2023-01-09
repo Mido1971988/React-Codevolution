@@ -19,3 +19,28 @@ notes:
 
     **Redux : Redux is a state management library (is a predictable state container for JavaScript apps ) that you can use with any JS library or framework like React, Angular, or Vue.
     https://www.freecodecamp.org/news/what-is-redux-store-actions-reducers-explained/amp/
+
+Components : 
+    * Root component (usually called APP) inside it there are 4 components :
+        (1) Header component
+        (2) Side Nav component
+        (3) Main Content Component
+        (4) Footer component
+
+Types of Components :
+    [A] Stateless Functional Component 
+        a normal JS function returns HTML
+        
+        function welcome(props){
+            return <h1>hello, {props.name}<h1>
+        }
+    
+    [B] Stateful Class Component :
+        a class Extending Component Class (from React library) and this class has render Method returns HTML
+        
+        class welcome extends React.component {
+            render(){
+                return <h1>hello, {this.props.name}<h1> 
+            }
+        }
+
