@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Greet from './components/Greet';
 import Welcome from './components/welcome';
+import Hello from './components/hello';
 
 // function App() {
 //   return (
@@ -24,11 +25,28 @@ import Welcome from './components/welcome';
 //   );
 // }
 
+// function App() {
+//   return (
+//     <div className="App">
+//       <Greet></Greet>
+//       <Welcome></Welcome>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <Hello></Hello>
+//     </div>
+//   );
+// }
+
 function App() {
   return (
     <div className="App">
-      <Greet></Greet>
-      <Welcome></Welcome>
+      <Greet name="Mohamed" heroName="Batman"><button>Action</button></Greet>
+      <Welcome name="Ahmed" heroName="Superman"><button>Stop</button></Welcome>
     </div>
   );
 }
