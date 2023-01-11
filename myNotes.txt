@@ -51,5 +51,22 @@ JSX (JavaScript language syntax) :
     * you can use React without JSX but with JSX code will be simpler
     * class => className -  for => htmlFor - onclick => onClick - tabindex => tabIndex
 
-
+Props : 
+    * is an object that's contains attributes and values which are passed in parent component ( inside App.js => like <Greet name="Ahmed"></Greet>) 
+    * you can use props.children to get elements that added between <Greet></Greet> in parent component ( inside App.js )
+    * props is immutable => you can not change it's value from Functional Component  or Class Component inside for Exp. Greet.js
     
+Diffrence between State and Props : 
+    Props : is Parameter passed to the component and immutable (can be accessed by props in Functional Component or this.props in Class component)
+    State : is Variable and managed inside Component and mutable (can be accessed by useState Hook in Functional component or this.state in Class component)
+
+setState :
+    * a Method to make changes to state (When you change state directly without using setState you change it but not invoking Render Method so will change but will not shown on the page see exp. in counter.js)
+    * has two Parameters (state Object , callBack Function)
+    * 1st parameter (state object) can be replaced by function and this function has 2 parameters (prevState , props)
+    * when you have to update state based on previous state value , pass in a functions as an argument to the setState method instead of state object
+    * ASYNC Method (see exp. in counter.js) to solve this problem use 2nd parameter of setState Method 
+
+prevState :
+    Batching is when React groups multiple state updates into a single update. That is only one single re-render will eventually happen.
+    so we use prevState (like new Variable created ) so you can increment it because state will update the value only one time

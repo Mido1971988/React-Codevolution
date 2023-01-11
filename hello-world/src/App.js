@@ -3,6 +3,8 @@ import './App.css';
 import Greet from './components/Greet';
 import Welcome from './components/welcome';
 import Hello from './components/hello';
+import Message from './components/message';
+import Counter from './components/counter';
 
 // function App() {
 //   return (
@@ -42,11 +44,29 @@ import Hello from './components/hello';
 //   );
 // }
 
+// function App() {
+//   return (
+//     <div className="App">
+//       <Greet name="Mohamed" heroName="Batman"><button>Action</button></Greet>
+//       <Welcome name="Ahmed" heroName="Superman"><button>Stop</button></Welcome>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <Message name="Soliman"></Message>
+//     </div>
+//   );
+// }
+
+// export default App;
+
 function App() {
   return (
     <div className="App">
-      <Greet name="Mohamed" heroName="Batman"><button>Action</button></Greet>
-      <Welcome name="Ahmed" heroName="Superman"><button>Stop</button></Welcome>
+      <Counter></Counter>
     </div>
   );
 }
