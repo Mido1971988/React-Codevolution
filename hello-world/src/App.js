@@ -5,6 +5,9 @@ import Welcome from './components/welcome';
 import Hello from './components/hello';
 import Message from './components/message';
 import Counter from './components/counter';
+import ClassClick from './components/classClick';
+import FunctionClick from './components/functionClick';
+import EventBind from './components/eventBind';
 
 // function App() {
 //   return (
@@ -63,10 +66,27 @@ import Counter from './components/counter';
 
 // export default App;
 
+// function App() {
+//   return (
+//     <div className="App">
+//       <Counter></Counter>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <FunctionClick></FunctionClick>
+//       <ClassClick></ClassClick>
+//     </div>
+//   );
+// }
+
 function App() {
   return (
     <div className="App">
-      <Counter></Counter>
+      <EventBind></EventBind>
     </div>
   );
 }

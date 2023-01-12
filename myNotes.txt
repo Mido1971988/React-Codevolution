@@ -70,3 +70,8 @@ setState :
 prevState :
     Batching is when React groups multiple state updates into a single update. That is only one single re-render will eventually happen.
     so we use prevState (like new Variable created ) so you can increment it because state will update the value only one time
+
+Shortcuts :
+    * rce : class component
+    * rcfe : function component
+    * rconst : construtor
