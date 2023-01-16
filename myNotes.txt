@@ -66,6 +66,7 @@ setState :
     * 1st parameter (state object) can be replaced by function and this function has 2 parameters (prevState , props)
     * when you have to update state based on previous state value , pass in a functions as an argument to the setState method instead of state object
     * ASYNC Method (see exp. in counter.js) to solve this problem use 2nd parameter of setState Method 
+    * 2nd Parameter used when you want to change state and invoke another function that use the new value of the state (see exp. in parentComponent.js)
 
 prevState :
     Batching is when React groups multiple state updates into a single update. That is only one single re-render will eventually happen.
@@ -75,3 +76,20 @@ Shortcuts :
     * rce : class component
     * rcfe : function component
     * rconst : construtor
+
+EventBinding: 
+    ** because Eventhandler Function is Async and excuted globaly so this will be window object ( in class will be undefined because of strict mode)
+    we have 4 options to be sure that this will be class not undefined 
+
+    [1] use bind keyword in render method  (bad performance)
+    [2] use arrow function in render method  (bad performance)
+    [3] use arrow function as class prop 
+    [4] use bind keyword in construtor
+
+Conditional render (exp. userGreeting.js):
+    [1] if / else
+    [2] Variable
+    [3] ternary operator
+    [4] short circuit operator
+
+to avoid a warning message on list (EXP. persons.js) add key property to each child

@@ -8,6 +8,9 @@ import Counter from './components/counter';
 import ClassClick from './components/classClick';
 import FunctionClick from './components/functionClick';
 import EventBind from './components/eventBind';
+import ParentComponent from './components/parentComponent';
+import UserGreeting from './components/userGreeting';
+import NameList from './components/nameList';
 
 // function App() {
 //   return (
@@ -83,10 +86,33 @@ import EventBind from './components/eventBind';
 //   );
 // }
 
+// function App() {
+//   return (
+//     <div className="App">
+//       <EventBind></EventBind>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <ParentComponent name="Soliman"></ParentComponent>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <UserGreeting name="Soliman"></UserGreeting>
+//     </div>
+//   );
+// }
 function App() {
   return (
     <div className="App">
-      <EventBind></EventBind>
+      <NameList></NameList>
     </div>
   );
 }
