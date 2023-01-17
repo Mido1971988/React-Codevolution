@@ -2,7 +2,7 @@ import React from 'react'
 import Persons from './persons'
 
 function NameList() {
-    // const names = ["Mohamed" , "Ahmed" , "Soliman"]
+    const names = ["Mohamed" , "Ahmed" , "Soliman"]
     const persons = [
         {
             id : 1,
@@ -26,21 +26,25 @@ function NameList() {
         // </div>
 
         // using map method
-        // <div>
-        //     {
-        //         names.map(name => <h1>{name}</h1>)
-        //     }
-        // </div>
-
-        // persons
         <div>
             {
-                // persons.map(person => <h1>Name : {person.name}. ID : {person.id}. Skill : {person.skill} </h1>)
-                
-                // using person.js
-                <Persons prop={persons}></Persons>
+                names.map((name,indx) => <h1 key={indx}>{name}</h1>)
             }
         </div>
+
+        // persons
+        // <div>
+        //     {
+                // persons.map(person => <h1>Name : {person.name}. ID : {person.id}. Skill : {person.skill} </h1>)
+                
+                // using person.js (map method here)
+                // persons.map(person => <Persons key={person.id} prop={person}></Persons>)
+
+                // using person.js (map method inside persons.js)
+                // <Persons prop={persons}></Persons>
+
+        //     }
+        // </div>
     )
 }
 
