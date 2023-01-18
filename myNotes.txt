@@ -92,4 +92,35 @@ Conditional render (exp. userGreeting.js):
     [3] ternary operator
     [4] short circuit operator
 
-to avoid a warning message on list (EXP. persons.js) add key property to each child
+Keys of list :
+    * has to be uniquex
+    * to avoid a warning message on list (EXP. persons.js) add key property to each child
+    * Key is not a prop (you can not access it see persons.js)
+    * it is not recommended to use index as key because React link the item list to it's key
+    so when add item at the begining you change the index of all items but when render the
+    React will render the item (for Exp. item linked to key 0) to the old item linked to 0
+    not the newly added item (see video 19 if you didn't understand)
+
+Style in React :
+    [1] CSS Stylesheet
+    [2] inline styling (object has styles and should be camelCase see inline.js)
+    [3] CSS Modules 
+     * in regular CSS file import like this import "./appStyles.css" but from module will be like this import styles from "./appStyles.module.css"
+     * using regular CSS file <h1 className='error'>Regular CSS</h1> but in module CSS <h1 className={styles.success}>Module CSS</h1>
+     * CSS Module better than regular CSS because child component can use regular CSS File(imported to parent component) and this leads to conflict
+     but in CSS Module you can not access it at child component because it's locally scoped (see inline.js)
+    [4] CSS in JS libraries
+
+LifeCycle Methods : 
+    [1] Mounting : when an instance of component is being created and inserted into the DOM
+        (a)constructor (b) static getDerivedStateFromProps (c) render (d) componentDidMount 
+    
+    [2] Updating : when a component is being re-render as a result of changes to either it's props or state
+        (a) static getDerivedStateFromProps (b) shouldComponentUpdate (c) render (d) getSnapshotBeforeUpdate (e) componentDidUpdate
+    
+    [3] Unmounting : when a component is being removed from the DOM
+        (a) componentWillUnmount
+
+    [4] Error Handling : when there is an Error during rendering , a LifeCycle method , in a constructor in any child component
+        (a)static getDerivedStateFromError (b)componentDidCatch
+

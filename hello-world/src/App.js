@@ -15,6 +15,7 @@ import Stylesheet from './components/stylesheet';
 import Inline from './components/inline';
 import "./appStyles.css"
 import styles from "./appStyles.module.css"
+import Form from './components/form';
 
 // function App() {
 //   return (
@@ -121,13 +122,21 @@ import styles from "./appStyles.module.css"
 //   );
 // }
 
+// function App() {
+//   return (
+//     <div className="App">
+//       {/* <Stylesheet primary={true}></Stylesheet> */}
+//       <Inline></Inline>
+//       <h1 className='error'>Regular CSS</h1>
+//       <h1 className={styles.success}>Module CSS</h1>
+//     </div>
+//   );
+// }
+
 function App() {
   return (
     <div className="App">
-      {/* <Stylesheet primary={true}></Stylesheet> */}
-      <Inline></Inline>
-      <h1 className='error'>Regular CSS</h1>
-      <h1 className={styles.success}>Module CSS</h1>
+      <Form></Form>
     </div>
   );
 }
