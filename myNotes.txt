@@ -112,9 +112,26 @@ Style in React :
     [4] CSS in JS libraries
 
 LifeCycle Methods : 
+    React component when created will do built-in Methods like constructor in Class component and those built-in methods you can override them : 
+
     [1] Mounting : when an instance of component is being created and inserted into the DOM
-        (a)constructor (b) static getDerivedStateFromProps (c) render (d) componentDidMount 
-    
+        (a)constructor  
+        * constructor is perfect for : initializing state or binding (this) to event handler -- do not HTTP Requests inside constructor
+        
+        (b) static getDerivedStateFromProps(props , state)
+        * used when the state of the component depends on changes in props over time.
+        * is a static method that is called just before render() method in both mounting and updating phase in React. 
+        It takes updated props and the current state as arguments. 
+        We have to return an object to update state or null to indicate that nothing has changed.
+                      
+        (c) render 
+            * The only required Method
+            * Do not : Change the state or interact with DOM or make AJAX Calls
+
+        (d) componentDidMount :
+            * invoked only once and immediately after a component and all it's Children components has been rendered to the DOM
+            * now you can DO : interact with DOM or AJAX calls
+
     [2] Updating : when a component is being re-render as a result of changes to either it's props or state
         (a) static getDerivedStateFromProps (b) shouldComponentUpdate (c) render (d) getSnapshotBeforeUpdate (e) componentDidUpdate
     
@@ -123,4 +140,6 @@ LifeCycle Methods :
 
     [4] Error Handling : when there is an Error during rendering , a LifeCycle method , in a constructor in any child component
         (a)static getDerivedStateFromError (b)componentDidCatch
+
+    
 

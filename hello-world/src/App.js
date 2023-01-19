@@ -16,6 +16,7 @@ import Inline from './components/inline';
 import "./appStyles.css"
 import styles from "./appStyles.module.css"
 import Form from './components/form';
+import LifecycleA from './components/lifecycleA';
 
 // function App() {
 //   return (
@@ -133,12 +134,21 @@ import Form from './components/form';
 //   );
 // }
 
+// function App() {
+//   return (
+//     <div className="App">
+//       <Form></Form>
+//     </div>
+//   );
+// }
+
 function App() {
   return (
     <div className="App">
-      <Form></Form>
+      <LifecycleA></LifecycleA>
     </div>
   );
 }
+
 
 export default App;
