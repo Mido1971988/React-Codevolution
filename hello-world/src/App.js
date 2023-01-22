@@ -145,7 +145,7 @@ import LifecycleA from './components/lifecycleA';
 function App() {
   return (
     <div className="App">
-      <LifecycleA></LifecycleA>
+      <LifecycleA name="Soliman"></LifecycleA>
     </div>
   );
 }

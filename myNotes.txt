@@ -112,7 +112,7 @@ Style in React :
     [4] CSS in JS libraries
 
 LifeCycle Methods : 
-    React component when created will do built-in Methods like constructor in Class component and those built-in methods you can override them : 
+    React component when created will call built-in Methods like constructor in Class component and those built-in methods you can override them : 
 
     [1] Mounting : when an instance of component is being created and inserted into the DOM
         (a)constructor  
@@ -122,7 +122,7 @@ LifeCycle Methods :
         * used when the state of the component depends on changes in props over time.
         * is a static method that is called just before render() method in both mounting and updating phase in React. 
         It takes updated props and the current state as arguments. 
-        We have to return an object to update state or null to indicate that nothing has changed.
+        We have to return an object(the updated state object) or null to indicate that nothing has changed.
                       
         (c) render 
             * The only required Method
@@ -133,7 +133,30 @@ LifeCycle Methods :
             * now you can DO : interact with DOM or AJAX calls
 
     [2] Updating : when a component is being re-render as a result of changes to either it's props or state
-        (a) static getDerivedStateFromProps (b) shouldComponentUpdate (c) render (d) getSnapshotBeforeUpdate (e) componentDidUpdate
+        (a) static getDerivedStateFromProps 
+            * same like in Mounting
+
+        (b) shouldComponentUpdate 
+            * this method decide if the component should re-render or not 
+            by default all components will re-render when they recieve a props or the state changes 
+            but with shouldComponentUpdate method you can prevent this default behavior by returning false
+        
+        (c) render 
+            * same like in Mounting
+
+        (d) getSnapshotBeforeUpdate(prevProps , prevState)
+            * is invoked right before the most recently rendered output is committed to e.g. the DOM. 
+            It enables your component to capture some information from the DOM (e.g. scroll position) 
+            before it is potentially changed. Any value returned by this lifecycle method 
+            will be passed as a parameter to componentDidUpdate().
+            * Exp. of using this Method is take the position of scroll of the user inside the website
+            and return this information of position and this will be a parameter to componentDidUpdate() 
+            so we can use this information to scroll agin the website to the same postion before updating
+            * getSnapshotBeforeUpdate will be called before componentDidUpdate even the children 
+        
+        (e) componentDidUpdate(prevProps , prevState, snapshot)
+            * Called only once after each re-render cycle
+            * can use AJAX and use prevState with new State
     
     [3] Unmounting : when a component is being removed from the DOM
         (a) componentWillUnmount
