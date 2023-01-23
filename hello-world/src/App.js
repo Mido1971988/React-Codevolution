@@ -17,6 +17,9 @@ import "./appStyles.css"
 import styles from "./appStyles.module.css"
 import Form from './components/form';
 import LifecycleA from './components/lifecycleA';
+import FragmentDemo from './components/fragmentDemo';
+import Table from './components/table';
+import ParentComp from './components/parentComp';
 
 // function App() {
 //   return (
@@ -142,10 +145,34 @@ import LifecycleA from './components/lifecycleA';
 //   );
 // }
 
+// function App() {
+//   return (
+//     <div className="App">
+//       <LifecycleA name="Soliman"></LifecycleA>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <FragmentDemo></FragmentDemo>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <Table></Table>
+//     </div>
+//   );
+// }
+
 function App() {
   return (
     <div className="App">
-      <LifecycleA name="Soliman"></LifecycleA>
+      <ParentComp></ParentComp>
     </div>
   );
 }

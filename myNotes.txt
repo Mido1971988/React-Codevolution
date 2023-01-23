@@ -75,6 +75,7 @@ prevState :
 Shortcuts :
     * rce : class component
     * rcfe : function component
+    * rpce : pure Component
     * rconst : construtor
 
 EventBinding: 
@@ -159,10 +160,24 @@ LifeCycle Methods :
             * can use AJAX and use prevState with new State
     
     [3] Unmounting : when a component is being removed from the DOM
-        (a) componentWillUnmount
+        (a) componentWillUnmount 
+            * invoked immediatly before a component is unmounted or destroyed
+            * can be used for cancelling any network requests , removing event handlers , cancelling any subscriptions and also invalidating timers
 
     [4] Error Handling : when there is an Error during rendering , a LifeCycle method , in a constructor in any child component
-        (a)static getDerivedStateFromError (b)componentDidCatch
+        (a)static getDerivedStateFromError 
+            
+        (b)componentDidCatch(error , info)
 
-    
+Fragments : 
+    * let you group list of children elements without adding extra nodes to DOM (see fragmentDemo.js and columns.js)
+    * key attribute the only attribute can be added to React.Fragment
+    * the shorthand of <React.Fragment></React.Fragment> is <></> but you can not add key attribute
 
+Pure Component : 
+    Diffrence between Regular Component and Pure Component : 
+    [1] shouldComponentUpdate implement : 
+        * Regular Component does not implement shouldComponentUpdate method and always return true (that's why when changing state to same value will render see (parentComp.js))
+        * Pure Component implement shouldComponentUpdate method with a shallow comparison of props and state ( that's why when changing state to same value will not render see (parentComp.js) )
+        note : shallow comparison ( [a] primitive types : should be same value and same data type [b] Complex Types : both should reference to the same object like arrays or objects)
+        note : if the state is an array do not use for exp. push method to array because you are mutating the same array with same reference so pure component will not render it's better to return new array with new reference
