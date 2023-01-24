@@ -20,6 +20,9 @@ import LifecycleA from './components/lifecycleA';
 import FragmentDemo from './components/fragmentDemo';
 import Table from './components/table';
 import ParentComp from './components/parentComp';
+import RefsDemo from './components/refsDemo';
+import FocusInput from './components/focusInput';
+
 
 // function App() {
 //   return (
@@ -169,10 +172,27 @@ import ParentComp from './components/parentComp';
 //   );
 // }
 
+// function App() {
+//   return (
+//     <div className="App">
+//       <ParentComp></ParentComp>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <RefsDemo></RefsDemo>
+//     </div>
+//   );
+// }
+
+
 function App() {
   return (
     <div className="App">
-      <ParentComp></ParentComp>
+      <FocusInput></FocusInput>
     </div>
   );
 }

@@ -174,10 +174,28 @@ Fragments :
     * key attribute the only attribute can be added to React.Fragment
     * the shorthand of <React.Fragment></React.Fragment> is <></> but you can not add key attribute
 
-Pure Component : 
+Pure Component (works only with class component) : 
     Diffrence between Regular Component and Pure Component : 
-    [1] shouldComponentUpdate implement : 
+    - shouldComponentUpdate implement : 
         * Regular Component does not implement shouldComponentUpdate method and always return true (that's why when changing state to same value will render see (parentComp.js))
         * Pure Component implement shouldComponentUpdate method with a shallow comparison of props and state ( that's why when changing state to same value will not render see (parentComp.js) )
         note : shallow comparison ( [a] primitive types : should be same value and same data type [b] Complex Types : both should reference to the same object like arrays or objects)
         note : if the state is an array do not use for exp. push method to array because you are mutating the same array with same reference so pure component will not render it's better to return new array with new reference
+
+memo (because pure component does not work with functional component we use memo Component):
+    * export default React.memo(MemoComp) / React.memo() called higher order component (later will discuss)
+
+ref (reference can by added to DOM element or class Component): 
+    * you can create a ref object by React.createRef() in constructor and use ref attribute on element to link this element to created ref
+    and this element will be stored as property called current so you can get it by this.myRef.current and you can for exp. Focus on it by this.myRef.current.focus() (see exp. refsDemo.js)
+    * or you can add ref attribute to class component inside parent component and access this component by this.inputComp.current see (focusInput.js)
+
+callback ref : 
+    * instead of using React.createRef() in the constructor:
+    [1] we create an property called cbRef that is initially set to null. 
+    [2] create a method called setCbRef
+    [3] add ref attribute to the element and pass setCbRef method to it (now it's callback)
+    [4] When the element mounts the callback ref (setCbRef method) is executed, storing the desired DOM element as the value of the this.setCbRef property.
+    note : The callback function passed to the ref attribute executes immediately upon the component mounting before componentDidMount fires so The referenced element is also guaranteed to be up to date before componentDidUpdate is executed.
+    note : The stored element is directly accessible via this.cbRef (instead of stored as the .current attribute of the object created by React.createRef() or useRef()).
+
