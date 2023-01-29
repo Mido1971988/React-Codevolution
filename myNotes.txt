@@ -193,9 +193,25 @@ ref (reference can by added to DOM element or class Component):
 callback ref : 
     * instead of using React.createRef() in the constructor:
     [1] we create an property called cbRef that is initially set to null. 
-    [2] create a method called setCbRef
+    [2] create a method called setCbRef.
     [3] add ref attribute to the element and pass setCbRef method to it (now it's callback)
-    [4] When the element mounts the callback ref (setCbRef method) is executed, storing the desired DOM element as the value of the this.setCbRef property.
+    [4] When the element mounts the callback ref (setCbRef method) is executed and the element will be an argument for this.setCbRef.
     note : The callback function passed to the ref attribute executes immediately upon the component mounting before componentDidMount fires so The referenced element is also guaranteed to be up to date before componentDidUpdate is executed.
     note : The stored element is directly accessible via this.cbRef (instead of stored as the .current attribute of the object created by React.createRef() or useRef()).
 
+forward ref : 
+    * a technique that forwards a ref through a component to one of its children
+    * React.forwardRef(component) accept a component as a parameter and this component accept two parameter props and ref see (FRInput.js)
+
+Protals : 
+    * root in React : in index.js you will find that we are creating a root using ReactDOM.createRoot() method
+    and add the div element that we want it as root by selecting it from index.html by using document.getElementById('root') the render with root and add APP component
+    
+    * But protals provide a way to render a children outside the root and steps are :
+    [1] create an element in index.html and give it an ID (portal-root)
+    [2] import ReactDOM  from 'react-dom' inside component (PortalDemo.js)
+    [3] use ReactDOM.createPortal(JSX , element) accept 2 parameters 1st is JSX and 2nd is element that you created outside the root (portal-root)
+
+    * use case of Portals is when you add style to all root DOM element and you need another element that does not inherit these styles
+
+    * Note : portals is not inside root element but act as a child in React DOM so event bubbling still works if you click on portal element will buuble up to parents in React root ( https://codepen.io/gaearon/pen/jGBWpE)

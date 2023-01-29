@@ -22,6 +22,8 @@ import Table from './components/table';
 import ParentComp from './components/parentComp';
 import RefsDemo from './components/refsDemo';
 import FocusInput from './components/focusInput';
+import FRParentInput from './components/FRParentInput';
+import PortalDemo from './components/PortalDemo';
 
 
 // function App() {
@@ -189,10 +191,26 @@ import FocusInput from './components/focusInput';
 // }
 
 
+// function App() {
+//   return (
+//     <div className="App">
+//       <FocusInput></FocusInput>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <FRParentInput></FRParentInput>
+//     </div>
+//   );
+// }
+
 function App() {
   return (
     <div className="App">
-      <FocusInput></FocusInput>
+      <PortalDemo></PortalDemo>
     </div>
   );
 }
