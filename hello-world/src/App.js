@@ -24,6 +24,10 @@ import RefsDemo from './components/refsDemo';
 import FocusInput from './components/focusInput';
 import FRParentInput from './components/FRParentInput';
 import PortalDemo from './components/PortalDemo';
+import Hero from './components/Hero';
+import ErrorBoundary from './components/ErrorBoundary';
+import ClickCounter from './components/ClickCounter';
+import HoverCounter from './components/HoverConuter'
 
 
 // function App() {
@@ -207,13 +211,37 @@ import PortalDemo from './components/PortalDemo';
 //   );
 // }
 
+// function App() {
+//   return (
+//     <div className="App">
+//       <PortalDemo></PortalDemo>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <ErrorBoundary>
+//         <Hero heroName="Batman"></Hero>
+//       </ErrorBoundary>
+//       <ErrorBoundary>
+//         <Hero heroName="Superman"></Hero>
+//       </ErrorBoundary>
+//       {/* <ErrorBoundary>
+//         <Hero heroName="Joker"></Hero>
+//       </ErrorBoundary> */}
+//     </div>
+//   );
+// }
+
 function App() {
   return (
     <div className="App">
-      <PortalDemo></PortalDemo>
+      <ClickCounter></ClickCounter>
+      <HoverCounter></HoverCounter>
     </div>
   );
 }
-
 
 export default App;

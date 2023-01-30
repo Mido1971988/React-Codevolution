@@ -164,10 +164,14 @@ LifeCycle Methods :
             * invoked immediatly before a component is unmounted or destroyed
             * can be used for cancelling any network requests , removing event handlers , cancelling any subscriptions and also invalidating timers
 
-    [4] Error Handling : when there is an Error during rendering , a LifeCycle method , in a constructor in any child component
-        (a)static getDerivedStateFromError 
+    [4] Error Handling : when there is an Error during rendering , a LifeCycle method , in a constructor in any child component 
+        * Error Boundaries are React Component that catch JS Error in their child component tree 
+        * A class component becomes an Error Boundary by definig either or both of getDerivedStateFromError and componentDidCatch (see ErrorBoundary.js) 
+        * Error Boundary can not catch Error in event handler
+        
+        (a)static getDerivedStateFromError : is used to render a fallback UI after an error is thrown 
             
-        (b)componentDidCatch(error , info)
+        (b)componentDidCatch(error , info) : is used to log the error information
 
 Fragments : 
     * let you group list of children elements without adding extra nodes to DOM (see fragmentDemo.js and columns.js)
@@ -215,3 +219,9 @@ Protals :
     * use case of Portals is when you add style to all root DOM element and you need another element that does not inherit these styles
 
     * Note : portals is not inside root element but act as a child in React DOM so event bubbling still works if you click on portal element will buuble up to parents in React root ( https://codepen.io/gaearon/pen/jGBWpE)
+
+Higher Order Component HOC : is a pattern that takes a component as an argument and returns a new component (see ClickCounter.js , HoverCounter.js and HOC.js) 
+    * if you want to add for exp. same function to two components no need two write function to each component 
+    you can create a function that accept these components as parameter and return a new component (original component + function ) 
+    and you can access this function from props that you added inside render method of new component
+    
