@@ -28,6 +28,11 @@ import Hero from './components/Hero';
 import ErrorBoundary from './components/ErrorBoundary';
 import ClickCounter from './components/ClickCounter';
 import HoverCounter from './components/HoverConuter'
+import ClickCounterTwo from './components/ClickCounterTwo';
+import HoverCounterTwo from './components/HoverCounterTwo';
+import RenderProps from './components/RenderProps'
+import ComponentA from './components/ComponentA';
+import { ContextProvider } from './components/UserContext';
 
 
 // function App() {
@@ -235,11 +240,29 @@ import HoverCounter from './components/HoverConuter'
 //   );
 // }
 
+// function App() {
+//   return (
+//     <div className="App">
+//       <ClickCounter name="Soliman" incNum={1}></ClickCounter>
+//       <HoverCounter name="soliman" incNum={2}></HoverCounter>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <RenderProps render={(count , incrementCount) => <ClickCounterTwo count={count} incrementCount={incrementCount}></ClickCounterTwo>}></RenderProps>
+//       <RenderProps render={(count , incrementCount) => <HoverCounterTwo count={count} incrementCount={incrementCount}></HoverCounterTwo>}></RenderProps>
+//     </div>
+//   );
+// }
 function App() {
   return (
     <div className="App">
-      <ClickCounter></ClickCounter>
-      <HoverCounter></HoverCounter>
+      <ContextProvider value="Soliman">
+        <ComponentA></ComponentA>
+      </ContextProvider>
     </div>
   );
 }

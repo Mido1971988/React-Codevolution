@@ -3,11 +3,11 @@ import UpdatedComponent from './HOC'
 
 class ClickCounter extends Component {
     render() {
-        const { count , incrementCount } = this.props
+        const { count , incrementCount , name } = this.props
         return (
-        <button onClick={incrementCount}>Clicked {count} Times</button>
+        <button onClick={incrementCount}>{name} Clicked {count} Times</button>
         )
     }
 }
 
-export default UpdatedComponent(ClickCounter)
+export default UpdatedComponent(ClickCounter , 10)

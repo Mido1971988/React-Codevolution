@@ -224,4 +224,55 @@ Higher Order Component HOC : is a pattern that takes a component as an argument 
     * if you want to add for exp. same function to two components no need two write function to each component 
     you can create a function that accept these components as parameter and return a new component (original component + function ) 
     and you can access this function from props that you added inside render method of new component
+
+    * if you want to pass a property to ClickCounter or HoverConuter from APP.js you have to write {...this.props} inside <OriginalComponent> in HOC.js
+    because you already use ClickCounter and HoverConuter when you return UpdatedComponent(HoverCounter or ClickCounter) 
+    so HoverConuter or ClickCounter inside APP.js not them they are updated version after using HOC
+
+    * you can use 2nd paramter of HOC to use for any purpose you want for exp. (we added incrementNum so you can add different num for each HoverConuter or ClickCounter by returning export default UpdatedComponent(ClickCounter , 10) ) 
     
+Render Props : 
+    * render prop is a technique for sharing code between React Components using a prop whose value is a function
+    * same concept of HOC you hace function and you need to write it to ClickCounterTwo and HoverConuterTwo so you can use 3rd component
+    like RenderProps.js and then you can add property(render property) to RenderProps component and this property can be a function and this function accepts
+    parameters and return ClickCounterTwo or HoverConuterTwo component and add those paramters as property to them (now you shared them ) 
+    and last step to call render property inside RenderProps.js
+
+context : 
+    * providing a way to pass data through the component tree without having to pass props down manually at every level
+    (means if you have parent A and has child B and grandchild C without context you have to pass property username to A then B then C to access it from grandChild C)
+
+    * Steps : 
+        [1] create Context (see UserContext.js) : using React.createContext() Method then take from it 2 components Provider and Consumer
+        [2] add Provider Component to APP Component and add property called value to it then inside Provider add ComponentA
+        [3] add Consumer to GrandChild (ComponentC) and insid Consumer add function the parameter of this function is the property value that you added to Provider
+
+    * you can add default value by adding it as parameter inside React.createContext() Method and if you didn't add Provider in APP.js 
+    Consumer will search for Provider if not found will use default value
+
+    * another steps using contextType (instead of adding consumer and then adding function and it's parameter will be the value property of Provider) : 
+    we can export UserContext from UserContext.js and change ContextType of ComponentC to UserContext by (1) ComponentC.contextType = UserContext or (2) static contextType = UserContext
+    then we can access value property by this.context 
+
+    * but regular Context is better than typeContext because
+    [1] typeContext works only with class component
+    [2] with multiple contexts you can not use type context : 
+        function content() {
+            return (
+                <themeContext.consumer>
+                    {
+                        theme => (
+                            <userContext.consumer>
+                                {
+                                    user => (
+                                        <profilepage user={user} theme={theme}></profilepage>
+                                    )
+                                }
+                            </userContext.consumer>
+                        )
+                    }
+                </themeContext.consumer>
+            ) 
+        }
+
+

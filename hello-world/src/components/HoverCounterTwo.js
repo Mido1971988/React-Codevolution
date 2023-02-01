@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import UpdatedComponent from './HOC' 
 
-class HoverCounter extends Component {
+class HoverCounterTwo extends Component {
     render() {
         const { count , incrementCount } = this.props
         return (
@@ -10,4 +9,4 @@ class HoverCounter extends Component {
     }
 }
 
-export default UpdatedComponent(HoverCounter , 5)
+export default HoverCounterTwo
