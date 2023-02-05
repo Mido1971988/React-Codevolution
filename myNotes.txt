@@ -1,3 +1,13 @@
+Creating React App (two options npx or npm): 
+[1] npx create-react-app <project-name> 
+(not installed globally so no worries about update package)
+
+[2] npm creat-react-app -g
+    create-react-app<project_name> 
+(installed globally so needs update)
+
+* note : remove <React.StrictMode> from index.js if React component render twice
+
     React : 
 * is library not framework
 * Focus on UI not Routing(1) or HTTP Requests
@@ -276,3 +286,4 @@ context :
         }
 
 
+HTTP : React does not do HTTP Request so we need to use another liberary with Reat (HTTP libraries like axios)
