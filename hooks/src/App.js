@@ -3,6 +3,10 @@ import './App.css';
 import ClassCounter from './components/ClassCounter';
 import HookCounter from './components/HookCounter';
 import HookCounterTwo from './components/HookCounterTwo';
+import HookCounterThree from './components/HookCounterThree';
+import ClassCounterThree from './components/ClassCounterThree';
+import HookCounterFour from './components/HookCounterFour';
+import UseEffectOne from './components/UseEffectOne';
 
 // function App() {
 //   return (
@@ -30,7 +34,11 @@ function App() {
     <div>
       {/* <ClassCounter></ClassCounter> */}
       {/* <HookCounter></HookCounter> */}
-      <HookCounterTwo></HookCounterTwo>
+      {/* <HookCounterTwo></HookCounterTwo> */}
+      {/* <ClassCounterThree></ClassCounterThree> */}
+      {/* <HookCounterThree></HookCounterThree> */}
+      {/* <HookCounterFour></HookCounterFour> */}
+      <UseEffectOne></UseEffectOne>
     </div>
   )
 }
