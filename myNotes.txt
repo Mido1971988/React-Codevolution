@@ -319,3 +319,13 @@ useEffect Hook (replacment for componentDidMount , componentDidUpdate and compon
     * useEffect(function) will excute the function (which is passed as parameter) every time the component renders
     for EXP. instead of using componentDidMount , componentDidUpdate inside UseEffectOneClass.js we use useEffect() inside UseEffectOne.js
 
+    ** Note : because useEffect hook excute function every render cycle will cause bad performance
+    so you can add second parameter to the useEffect and this second paramter is an array (Dependancy array)and you can add 
+    inside this array a value and the useEffect will excute the function only if that value changes (see UseEffectOne.js) 
+
+    ** Note : to tell useEffect hook to excute the function only once (replacment componentDidMount in MouseClass.js) add second parameter empty array (see HookMouse.js)
+
+    ** Note : the function inside useEffect can return another function and this returned function will be excuted
+    when the component unmounted (see HookMouse.js) (replacment componentWillUnmount in MouseClass.js)
+
+

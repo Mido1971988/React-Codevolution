@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class ClassCounterOne extends Component {
+class UseEffectOneClass extends Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -32,4 +32,4 @@ class ClassCounterOne extends Component {
 	}
 }
 
-export default ClassCounterOne
+export default UseEffectOneClass
