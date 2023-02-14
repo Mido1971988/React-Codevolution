@@ -28,8 +28,8 @@ import PostForm from './components/PostForm';
 class App extends Component {
   render() {
     return (
-      // <PostList></PostList>
-      <PostForm></PostForm>
+      <PostList></PostList>
+      // <PostForm></PostForm>
     )
   }
 }

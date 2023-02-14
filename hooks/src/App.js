@@ -12,6 +12,8 @@ import MouseClass from './components/MouseClass'
 import HookMouse from './components/HookMouse';
 import IntervalClassCounter from './components/IntervalClassCounter';
 import IntervalHookCounter from './components/IntervalHookCounter';
+import DataFetching from './components/DataFetching';
+import ComponentA from './components/ComponentA'
 
 // function App() {
 //   return (
@@ -34,23 +36,39 @@ import IntervalHookCounter from './components/IntervalHookCounter';
 //   );
 // }
 
+export const UserContext = react.createContext()
+export const ChannelContext = react.createContext()
+
 function App() {
-  return (
-    <div>
-      {/* <ClassCounter></ClassCounter> */}
-      {/* <HookCounter></HookCounter> */}
-      {/* <HookCounterTwo></HookCounterTwo> */}
-      {/* <ClassCounterThree></ClassCounterThree> */}
-      {/* <HookCounterThree></HookCounterThree> */}
-      {/* <HookCounterFour></HookCounterFour> */}
-      {/* <UseEffectOneClass></UseEffectOneClass> */}
-      {/* <UseEffectOne></UseEffectOne> */}
-      {/* <MouseClass></MouseClass> */}
-      {/* <HookMouse></HookMouse> */}
-      {/* <IntervalClassCounter></IntervalClassCounter> */}
-      {/* <IntervalHookCounter></IntervalHookCounter> */}
-    </div>
-  )
+	return (
+		<div className="App">
+			<UserContext.Provider value={'Vishwas'}>
+        <ChannelContext.Provider value={'Codevolution'}>
+					<ComponentA />
+				</ChannelContext.Provider>
+			</UserContext.Provider>
+		</div>
+	)
 }
+
+// function App() {
+//   return (
+//     <div>
+//       {/* <ClassCounter></ClassCounter> */}
+//       {/* <HookCounter></HookCounter> */}
+//       {/* <HookCounterTwo></HookCounterTwo> */}
+//       {/* <ClassCounterThree></ClassCounterThree> */}
+//       {/* <HookCounterThree></HookCounterThree> */}
+//       {/* <HookCounterFour></HookCounterFour> */}
+//       {/* <UseEffectOneClass></UseEffectOneClass> */}
+//       {/* <UseEffectOne></UseEffectOne> */}
+//       {/* <MouseClass></MouseClass> */}
+//       {/* <HookMouse></HookMouse> */}
+//       {/* <IntervalClassCounter></IntervalClassCounter> */}
+//       {/* <IntervalHookCounter></IntervalHookCounter> */}
+//       <DataFetching></DataFetching>
+//     </div>
+//   )
+// }
 
 export default App;

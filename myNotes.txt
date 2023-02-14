@@ -328,4 +328,7 @@ useEffect Hook (replacment for componentDidMount , componentDidUpdate and compon
     ** Note : the function inside useEffect can return another function and this returned function will be excuted
     when the component unmounted (see HookMouse.js) (replacment componentWillUnmount in MouseClass.js)
 
-
+useContext Hook : 
+    * incase of nested consumers like in (ComponentC.js) you can use useContext(UserContext) and add UserContext (which is created by react.createContext() in App.js) as parameter
+    and will return value of context Provider (UserContext.Provider or ChannelContext.Provider)
+    so will be easier of nested consumers

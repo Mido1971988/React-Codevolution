@@ -15,6 +15,7 @@ class PostList extends Component {
         axios.get("https://jsonplaceholder.typicode.com/posts")
             .then(response => {
                 this.setState({posts: response.data})
+                console.log(response)
             })
             .catch(error =>{
                 this.setState({errorMsg : error.message})
