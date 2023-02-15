@@ -332,3 +332,13 @@ useContext Hook :
     * incase of nested consumers like in (ComponentC.js) you can use useContext(UserContext) and add UserContext (which is created by react.createContext() in App.js) as parameter
     and will return value of context Provider (UserContext.Provider or ChannelContext.Provider)
     so will be easier of nested consumers
+
+useReducer : is used for state management (alternative to useState)
+    * same concept of Array.prototype.reduce
+        * Array.prototype.reduce(Reducer callBackFunction , initialValue) and callBackFunction(accumulator,currentValue) and return single value
+        * useReducer(Reducer callBackFunction , initialState) and callBackFunction(currentState , action) return pair of values [newState, disptach]
+    * Steps of useReducer in CounterOne.js : 
+        [1] create Variables of initialState and reducer function(state , action)
+        [2] use useReducer Hook whic is return pair of values (count , disptach function)
+        [3] use disptach function and it's parameter is the action argumentof reducer function
+

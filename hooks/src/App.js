@@ -14,6 +14,12 @@ import IntervalClassCounter from './components/IntervalClassCounter';
 import IntervalHookCounter from './components/IntervalHookCounter';
 import DataFetching from './components/DataFetching';
 import ComponentA from './components/ComponentA'
+import CounterOne from './components/CounterOne';
+import CounterTwo from './components/CounterTwo';
+import CounterThree from './components/CounterThree';
+import ComponentD from './components/ComponentD';
+import DataFetchingOne from './components/DataFetchingOne';
+import DataFetchingTwo from './components/DataFetchingTwo';
 
 // function App() {
 //   return (
@@ -36,39 +42,77 @@ import ComponentA from './components/ComponentA'
 //   );
 // }
 
-export const UserContext = react.createContext()
-export const ChannelContext = react.createContext()
+
+// ------ useContext()
+// export const UserContext = react.createContext()
+// export const ChannelContext = react.createContext()
+// function App() {
+// 	return (
+// 		<div className="App">
+// 			<UserContext.Provider value={'Vishwas'}>
+//         <ChannelContext.Provider value={'Codevolution'}>
+// 					<ComponentA />
+// 				</ChannelContext.Provider>
+// 			</UserContext.Provider>
+// 		</div>
+// 	)
+// }
+
+// ----------------useReducer + useContext
+// import React, { useReducer } from 'react'
+// const initialState = 0
+// const reducer = (state, action) => {
+// 	switch (action) {
+// 		case 'increment':
+// 			return state + 1
+// 		case 'decrement':
+// 			return state - 1
+// 		case 'reset':
+// 			return initialState
+// 		default:
+// 			return state
+// 	}
+// }
+
+// export const CountContext = React.createContext()
+
+// function App() {
+// 	const [count, dispatch] = useReducer(reducer, initialState)
+// 	return (
+// 		<CountContext.Provider value={{ countState: count, countDispatch: dispatch }}>
+// 			Count - {count}
+// 			<div className="App">
+// 				<ComponentD />
+// 			</div>
+// 		</CountContext.Provider>
+// 	)
+// }
+
+
 
 function App() {
 	return (
-		<div className="App">
-			<UserContext.Provider value={'Vishwas'}>
-        <ChannelContext.Provider value={'Codevolution'}>
-					<ComponentA />
-				</ChannelContext.Provider>
-			</UserContext.Provider>
+		<div>
+			{/* <ClassCounter></ClassCounter> */}
+			{/* <HookCounter></HookCounter> */}
+			{/* <HookCounterTwo></HookCounterTwo> */}
+			{/* <ClassCounterThree></ClassCounterThree> */}
+			{/* <HookCounterThree></HookCounterThree> */}
+			{/* <HookCounterFour></HookCounterFour> */}
+			{/* <UseEffectOneClass></UseEffectOneClass> */}
+			{/* <UseEffectOne></UseEffectOne> */}
+			{/* <MouseClass></MouseClass> */}
+			{/* <HookMouse></HookMouse> */}
+			{/* <IntervalClassCounter></IntervalClassCounter> */}
+			{/* <IntervalHookCounter></IntervalHookCounter> */}
+			{/* <DataFetching></DataFetching> */}
+			{/* <CounterOne></CounterOne> */}
+			{/* <CounterTwo></CounterTwo> */}
+			{/* <CounterThree></CounterThree> */}
+			{/* <DataFetchingOne></DataFetchingOne> */}
+			<DataFetchingTwo></DataFetchingTwo>
 		</div>
 	)
 }
-
-// function App() {
-//   return (
-//     <div>
-//       {/* <ClassCounter></ClassCounter> */}
-//       {/* <HookCounter></HookCounter> */}
-//       {/* <HookCounterTwo></HookCounterTwo> */}
-//       {/* <ClassCounterThree></ClassCounterThree> */}
-//       {/* <HookCounterThree></HookCounterThree> */}
-//       {/* <HookCounterFour></HookCounterFour> */}
-//       {/* <UseEffectOneClass></UseEffectOneClass> */}
-//       {/* <UseEffectOne></UseEffectOne> */}
-//       {/* <MouseClass></MouseClass> */}
-//       {/* <HookMouse></HookMouse> */}
-//       {/* <IntervalClassCounter></IntervalClassCounter> */}
-//       {/* <IntervalHookCounter></IntervalHookCounter> */}
-//       <DataFetching></DataFetching>
-//     </div>
-//   )
-// }
 
 export default App;
