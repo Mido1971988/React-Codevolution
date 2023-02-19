@@ -337,8 +337,33 @@ useReducer : is used for state management (alternative to useState)
     * same concept of Array.prototype.reduce
         * Array.prototype.reduce(Reducer callBackFunction , initialValue) and callBackFunction(accumulator,currentValue) and return single value
         * useReducer(Reducer callBackFunction , initialState) and callBackFunction(currentState , action) return pair of values [newState, disptach]
+    
     * Steps of useReducer in CounterOne.js : 
         [1] create Variables of initialState and reducer function(state , action)
         [2] use useReducer Hook whic is return pair of values (count , disptach function)
         [3] use disptach function and it's parameter is the action argumentof reducer function
 
+    * state and action (parameters of reducer function) can be objects like in CounterTwo.js
+
+    * you can use multiple useReducer like in CounterThree.js
+
+    * you can combine useReducer and useContext Hooks like in ComponentD.js
+
+react.memo : 
+    * is a higher order component that's prevent the functional component to re-render if the props or stats did not change like in (Title.js or Count.js or Button.js)
+    * Exp in (ParentComponent.js and Title.js , Count.js , Button.js) when using react.memo when you press button for age increment the button for salary increment will re-render
+    because when the ParentComponent.js renders (because we changed the age state ) will create an new incrementSalary function so the props of salary button changed so the salary button component will re-render
+    to solve this problem we will use useCallback Hook
+
+useCallback Hook : 
+    * a hook that will return a copy of callback function (cached Value) that only changes if one of the Dependancies has changed
+    * should be used with react.memo
+    * Exp in (ParentComponent.js and Title.js , Count.js , Button.js) useCallback Hook will return a copies of incrementSalary and incrementAge function 
+    and those function will not created every time ParentComponent.js re-renders so props of salary button will not change when you click on age button (or vice versus)
+    so salary button will not re-render
+
+useMemo Hook : 
+    * like useCallback Hook but will return a value of excuted function and will excute this function only if one of the Dependancies has changed
+    * Exp in (MemoCounter.js) when MemoCounter Component renders isEven Function(contains while loop) will excute and take long time
+    and MemoCounter component will re-render when you click on Count One or Two because you are changing state from incrementOne or incrementTwo Functions
+    but by using useMemo Hook you solve this problem

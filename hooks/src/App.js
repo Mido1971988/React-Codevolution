@@ -20,6 +20,8 @@ import CounterThree from './components/CounterThree';
 import ComponentD from './components/ComponentD';
 import DataFetchingOne from './components/DataFetchingOne';
 import DataFetchingTwo from './components/DataFetchingTwo';
+import ParentComponent from './components/ParentComponent';
+import MemoCounter from './components/MemoCounter';
 
 // function App() {
 //   return (
@@ -110,7 +112,9 @@ function App() {
 			{/* <CounterTwo></CounterTwo> */}
 			{/* <CounterThree></CounterThree> */}
 			{/* <DataFetchingOne></DataFetchingOne> */}
-			<DataFetchingTwo></DataFetchingTwo>
+			{/* <DataFetchingTwo></DataFetchingTwo> */}
+			{/* <ParentComponent></ParentComponent> */}
+			<MemoCounter></MemoCounter>
 		</div>
 	)
 }
