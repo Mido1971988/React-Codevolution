@@ -22,6 +22,14 @@ import DataFetchingOne from './components/DataFetchingOne';
 import DataFetchingTwo from './components/DataFetchingTwo';
 import ParentComponent from './components/ParentComponent';
 import MemoCounter from './components/MemoCounter';
+import FocusInput from './components/FocusInput';
+import ClassTimer from './components/ClassTimer';
+import HookTimer from './components/HookTimer';
+import DocTitleOne from './components/DocTitleOne';
+import DocTitleTwo from './components/DocTitleTwo';
+import CounterOnee from './components/CounterOnee';
+import CounterTwoo from './components/CounterTwoo';
+import UserForm from './components/UserForm';
 
 // function App() {
 //   return (
@@ -114,7 +122,15 @@ function App() {
 			{/* <DataFetchingOne></DataFetchingOne> */}
 			{/* <DataFetchingTwo></DataFetchingTwo> */}
 			{/* <ParentComponent></ParentComponent> */}
-			<MemoCounter></MemoCounter>
+			{/* <MemoCounter></MemoCounter> */}
+			{/* <FocusInput></FocusInput> */}
+			{/* <ClassTimer></ClassTimer> */}
+			{/* <HookTimer></HookTimer> */}
+			{/* <DocTitleOne></DocTitleOne>
+			<DocTitleTwo></DocTitleTwo> */}
+			{/* <CounterOnee></CounterOnee>
+			<CounterTwoo></CounterTwoo> */}
+			<UserForm></UserForm>
 		</div>
 	)
 }

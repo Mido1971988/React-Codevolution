@@ -19,7 +19,7 @@ function DataFetchingOne() {
         setError('Something went wrong!')
       })
   }, [])
-
+  
   return (
     <div>
       {loading ? 'Loading' : post.title}

@@ -202,12 +202,12 @@ memo (because pure component does not work with functional component we use memo
 
 ref (reference can by added to DOM element or class Component): 
     * you can create a ref object by React.createRef() in constructor and use ref attribute on element to link this element to created ref
-    and this element will be stored as property called current so you can get it by this.myRef.current and you can for exp. Focus on it by this.myRef.current.focus() (see exp. refsDemo.js)
+    and this element will be stored as property called current so you can get it by this.myRef.current and you can for exp. Focus on it by this.myRef.current.focus() 
     * or you can add ref attribute to class component inside parent component and access this component by this.inputComp.current see (focusInput.js)
 
 callback ref : 
     * instead of using React.createRef() in the constructor:
-    [1] we create an property called cbRef that is initially set to null. 
+    [1] we create an property called cbRef that is initially set to null. (see exp. refsDemo.js) 
     [2] create a method called setCbRef.
     [3] add ref attribute to the element and pass setCbRef method to it (now it's callback)
     [4] When the element mounts the callback ref (setCbRef method) is executed and the element will be an argument for this.setCbRef.
@@ -233,7 +233,7 @@ Protals :
 
 Higher Order Component HOC : is a pattern that takes a component as an argument and returns a new component (see ClickCounter.js , HoverCounter.js and HOC.js) 
     * if you want to add for exp. same function to two components no need two write function to each component 
-    you can create a function that accept these components as parameter and return a new component (original component + function ) 
+    you can create a function that accept these components as parameter (original component + function ) and return a new component  
     and you can access this function from props that you added inside render method of new component
 
     * if you want to pass a property to ClickCounter or HoverConuter from APP.js you have to write {...this.props} inside <OriginalComponent> in HOC.js
@@ -244,7 +244,7 @@ Higher Order Component HOC : is a pattern that takes a component as an argument 
     
 Render Props : 
     * render prop is a technique for sharing code between React Components using a prop whose value is a function
-    * same concept of HOC you hace function and you need to write it to ClickCounterTwo and HoverConuterTwo so you can use 3rd component
+    * same concept of HOC you have function and you need to write it to ClickCounterTwo and HoverConuterTwo so you can use 3rd component
     like RenderProps.js and then you can add property(render property) to RenderProps component and this property can be a function and this function accepts
     parameters and return ClickCounterTwo or HoverConuterTwo component and add those paramters as property to them (now you shared them ) 
     and last step to call render property inside RenderProps.js
@@ -289,6 +289,15 @@ context :
 
 HTTP : React does not do HTTP Request so we need to use another liberary with Reat (HTTP libraries like axios)
 
+Side Effects : 
+    * A React side-effect occurs when we use something that is outside the scope of React in our React components e.g. Web APIs like localStorage or HTTP-Requests or Document.title.
+    * We usually manage React side effects inside the useEffect hook or LifeCycle Methods in Class Component like componentDidMount
+    * when you add side effect inside React Component directly without useEffect Hook or LifeCycle Method every time the component renders 
+    the side Effect will run and cause bad performance and if side effect has inside it changing state of component you will stuck in re-render infinite loop
+
+Pure : 
+    Most React components are pure functions, meaning they receive an input and produce a predictable output of JSX.
+    it expects the same JSX for the same state/props regardless of how many times it renders
 
 HOOKS : 
     * Allow you to use React features without having to write a class (EXP. state before should use class component with HOOKS no need for class component)
@@ -367,3 +376,23 @@ useMemo Hook :
     * Exp in (MemoCounter.js) when MemoCounter Component renders isEven Function(contains while loop) will excute and take long time
     and MemoCounter component will re-render when you click on Count One or Two because you are changing state from incrementOne or incrementTwo Functions
     but by using useMemo Hook you solve this problem
+
+useRef Hook : 
+    * with useRef Hook you can access DOM Node directly from Functional Component.
+    * same concept of using ref inside Class Component instead of using const inputRef = React.createRef() we will use useRef(null) and add inputRef to ref attribute inside DOM element
+    and you can access the DOM element by inputRef.current see (FocusInput.js)
+    ** Note : i tried const inputRef = React.createRef() and still works with functional Component
+
+    * useRef Hook can be used as generic container which can hold a mutable value similar to instance property in class component see(HookTimer.js and ClassTimer.js)
+    in HookTimer.js we used const interValRef = useRef() (like global variable because if we created this variable inisde useEffect we can not access it in onClick Event in Button) 
+    so we created interValRef and we can access it's value by interValRef.current same concept of using interval (instance field) inside ClassTimer.js
+
+custome Hook :
+    * you can create your own custome Hook
+    * custome Hook is a JS Function starts with "use"
+    * custome Hook can call other Hooks if required
+    * custome Hook can share Logic like HOCs(higher order Components) and Render Props
+    * EXP1. useDocumentTitle is a custome Hook and we use it with DoctitleOne.js and DocTitleTwo.js
+    * EXP2. useCounter is a custome Hook and we use it with CounterOnee.js and CounterTwoo.js
+    * EXP3. useinput is a custome Hook and we use it with UserForm.js
+

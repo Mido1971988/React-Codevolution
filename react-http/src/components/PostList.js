@@ -21,6 +21,7 @@ class PostList extends Component {
                 this.setState({errorMsg : error.message})
             })
     }
+
     render() {
         const {posts , errorMsg} = this.state
         return (
