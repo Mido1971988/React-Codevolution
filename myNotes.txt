@@ -358,6 +358,8 @@ useReducer : is used for state management (alternative to useState)
 
     * you can combine useReducer and useContext Hooks like in ComponentD.js
 
+    * useState is mostly used when types of states are number, boolean, and string. useReducer is used when types of states are objects ad arrays.
+
 react.memo : 
     * is a higher order component that's prevent the functional component to re-render if the props or stats did not change like in (Title.js or Count.js or Button.js)
     * Exp in (ParentComponent.js and Title.js , Count.js , Button.js) when using react.memo when you press button for age increment the button for salary increment will re-render
@@ -395,4 +397,28 @@ custome Hook :
     * EXP1. useDocumentTitle is a custome Hook and we use it with DoctitleOne.js and DocTitleTwo.js
     * EXP2. useCounter is a custome Hook and we use it with CounterOnee.js and CounterTwoo.js
     * EXP3. useinput is a custome Hook and we use it with UserForm.js
+
+Render (initial Render ) steps in React : 
+    [A] Render Phase : 
+        React start from Root Component Tree and move downwards and at each element invoke createElement() Method to convert JSX to React Elements and store it
+
+    [B] Commit phase : 
+        Take the React Elements from Render Phase and apply them to the DOM using React DOM Package 
+
+
+Re-render Steps in React : 
+    [A] Render Phase : 
+        When the component needs to update the component will be flagged and React will start from Root Component Tree and move downwards till finds flagged Component 
+        then React will invoke createElement() Method to convert JSX to React Elements for each flagged component and then compare previous render to new render 
+        then go to Commit phase . ( if no changes between previous render and new render will not go to commit phase and will not change DOM ) 
+        
+        The Component can flag itself for update by calling useState setter function or useReducer dispatch function 
+
+    [B] Commit phase : 
+        Take the changes from Re-Render Phase and apply them to the DOM using React DOM Package 
+
+useState setter function : if you update to the same value of current state will not re-render 
+(if this is 1st re-render cycle and value is the same of initial Value the React will go exit before comparing previous render to new Render
+but if this is not 1st re-render and value is the same of current Value React will continue to comparing previous render to new Render and then Exit before commit phase)
+
 
