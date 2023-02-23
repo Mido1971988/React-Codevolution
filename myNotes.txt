@@ -417,8 +417,11 @@ Re-render Steps in React :
     [B] Commit phase : 
         Take the changes from Re-Render Phase and apply them to the DOM using React DOM Package 
 
-useState setter function : if you update to the same value of current state will not re-render 
-(if this is 1st re-render cycle and value is the same of initial Value the React will go exit before comparing previous render to new Render
+useState setter function : if you update to the same value of current state will not re-render (except if not after initial Render cycle will re-render one more time then will not re-render again ) 
+(if this is 1st re-render cycle and value is the same of initial Value the React will exit before comparing previous render to new Render
 but if this is not 1st re-render and value is the same of current Value React will continue to comparing previous render to new Render and then Exit before commit phase)
+
+useReducer dispatch function : after React 18 Update will re-render Even if the same Value
+
 
 
