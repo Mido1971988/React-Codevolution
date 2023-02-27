@@ -2,6 +2,10 @@ import logo from './logo.svg';
 import './App.css';
 import { UseState } from './components/UseState/UseState';
 import { UseReducer } from './components/UseReducer/UseReducer';
+import { ObjectUseState } from './components/ImmutableState/ObjectUseState';
+import { ArrayUseReducer } from './components/ImmutableState/ArrayUseReducer';
+import { ObjectUseReducer } from './components/ImmutableState/ObjectUseReducer';
+import { Parent } from './components/Parent-Child/Parent';
 
 // function App() {
 //   return (
@@ -26,7 +30,11 @@ import { UseReducer } from './components/UseReducer/UseReducer';
 function App(){
   return (
     // <UseState></UseState>
-    <UseReducer></UseReducer>
+    // <UseReducer></UseReducer>
+    // <ObjectUseState></ObjectUseState>
+    // <ArrayUseReducer></ArrayUseReducer>
+    // <ObjectUseReducer></ObjectUseReducer>
+    <Parent></Parent>
   )
 }
 export default App;

@@ -417,11 +417,26 @@ Re-render Steps in React :
     [B] Commit phase : 
         Take the changes from Re-Render Phase and apply them to the DOM using React DOM Package 
 
+** if state value is primitive : 
 useState setter function : if you update to the same value of current state will not re-render (except if not after initial Render cycle will re-render one more time then will not re-render again ) 
 (if this is 1st re-render cycle and value is the same of initial Value the React will exit before comparing previous render to new Render
 but if this is not 1st re-render and value is the same of current Value React will continue to comparing previous render to new Render and then Exit before commit phase)
 
 useReducer dispatch function : after React 18 Update will re-render Even if the same Value
 
+** if state value is array or object :
+[1] if Object :
+useState setter function : if you change the properties of the object React will not re-render
+    because you are changing only properties but it's the same object with same reference 
+    but if you change it to new object you changed the reference and then React will re-render (like in ObjectUseState.js )
 
+[2] if Array :
+useState setter function : same concept of object if you push values to the array you are not changing the array and still Array and same reference
+you have to change it to new Array with new reference (like in ArrayUseState.js)
+
+useReducer dispatch function : after React 18 Update will re-render Even if the same reference but will not change UI on re-render (ObjectUseReducer.js & ArrayUseReducer.js)
+
+Parent and Child Render behavior : 
+    if Parent Re-render all Childs will re-render (default behavior of React)
+    except in one case (if the value of state is the same and re-render not after initial Render cycle will re-render the parent only (only one time) ) see (parent.js & child.js and try count to 5 button)
 
