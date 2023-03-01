@@ -6,6 +6,11 @@ import { ObjectUseState } from './components/ImmutableState/ObjectUseState';
 import { ArrayUseReducer } from './components/ImmutableState/ArrayUseReducer';
 import { ObjectUseReducer } from './components/ImmutableState/ObjectUseReducer';
 import { Parent } from './components/Parent-Child/Parent';
+import { ParentOne } from './components/Optimization/ParentOne';
+import { OptimizedParentOne } from './components/Optimization/OptimizedParentOne';
+import { ChildOne } from './components/Optimization/ChildOne';
+import { GrandParent } from './components/Optimization/GrandParent';
+import { ParentTwo } from './components/Optimization/ParentTwo';
 
 // function App() {
 //   return (
@@ -34,7 +39,11 @@ function App(){
     // <ObjectUseState></ObjectUseState>
     // <ArrayUseReducer></ArrayUseReducer>
     // <ObjectUseReducer></ObjectUseReducer>
-    <Parent></Parent>
+    // <Parent></Parent>
+    // <ParentOne></ParentOne>
+    // <OptimizedParentOne><ChildOne></ChildOne></OptimizedParentOne>
+    <GrandParent></GrandParent>
+    // <ParentTwo></ParentTwo>
   )
 }
 export default App;

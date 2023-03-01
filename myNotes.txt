@@ -363,7 +363,9 @@ useReducer : is used for state management (alternative to useState)
 react.memo : 
     * is a higher order component that's prevent the functional component to re-render if the props or stats did not change like in (Title.js or Count.js or Button.js)
     * Exp in (ParentComponent.js and Title.js , Count.js , Button.js) when using react.memo when you press button for age increment the button for salary increment will re-render
-    because when the ParentComponent.js renders (because we changed the age state ) will create an new incrementSalary function so the props of salary button changed so the salary button component will re-render
+    because of two reasons : 
+    [1] default behaviour of React when ParentComponent.js renders (because we changed the age state ) all it's Children will re-render (even if children props or state are the same) and to solve this problem will use react.memo
+    [2] when the ParentComponent.js renders (because we changed the age state ) will create an new incrementSalary function so the props of salary button changed so the salary button component will re-render
     to solve this problem we will use useCallback Hook
 
 useCallback Hook : 
@@ -439,4 +441,23 @@ useReducer dispatch function : after React 18 Update will re-render Even if the 
 Parent and Child Render behavior : 
     if Parent Re-render all Childs will re-render (default behavior of React)
     except in one case (if the value of state is the same and re-render not after initial Render cycle will re-render the parent only (only one time) ) see (parent.js & child.js and try count to 5 button)
+
+    React render the top-level components and the other nested components within those components will not render they will be passed as props (this.props.children in class component or parameter of function component) 
+
+    Difference between nested component and Child Component (<ChildOne/> inside ParentOne.js is Child Component but <OptimizedParentOne><ChildOne></ChildOne></OptimizedParentOne> in App.js is nested component )
+
+    if you change the state of the component will re-render but will not re-render the child (child passed as parameter like in OptimizedParentOne.js) because React knows you can not change props 
+    so for sure child component is the same and no need for re-render
+    
+    if you change state of grandParent Component (GrandParentOne.js) will re-render and will re-render parent(OptimizedParentOne.js) and also will re-render the grandChild (ChildOne.js) 
+    because react now do not sure props of parent is the same or not because now you can change props so will re-render Child
+
+to avoid unnecessary re-render of Child :
+    [A] you can add child as nested component inside parent component in App.js then pass the Child as paramter (like in OptimizedParentOne.js).
+    [B] React memo : is a higher order component that's prevent the functional component to re-render if the props or stats did not change (see ChildTwo.js and ParentTwo.js)
+    
+    **Note : Difference between 2 options : 
+    1st option works only if state of parent Changes but if props changes Child will re-render 
+    2nd option Child will not re-render if props or state of parent changes
+
 
