@@ -11,6 +11,8 @@ import { OptimizedParentOne } from './components/Optimization/OptimizedParentOne
 import { ChildOne } from './components/Optimization/ChildOne';
 import { GrandParent } from './components/Optimization/GrandParent';
 import { ParentTwo } from './components/Optimization/ParentTwo';
+import { ParentThree } from './components/Optimization/ParentThree';
+import { ParentFour } from './components/Optimization/ParentFour';
 
 // function App() {
 //   return (
@@ -42,8 +44,10 @@ function App(){
     // <Parent></Parent>
     // <ParentOne></ParentOne>
     // <OptimizedParentOne><ChildOne></ChildOne></OptimizedParentOne>
-    <GrandParent></GrandParent>
+    // <GrandParent></GrandParent>
     // <ParentTwo></ParentTwo>
+    // <ParentThree></ParentThree>
+    <ParentFour></ParentFour>
   )
 }
 export default App;

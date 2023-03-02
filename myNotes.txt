@@ -456,8 +456,17 @@ to avoid unnecessary re-render of Child :
     [A] you can add child as nested component inside parent component in App.js then pass the Child as paramter (like in OptimizedParentOne.js).
     [B] React memo : is a higher order component that's prevent the functional component to re-render if the props or stats did not change (see ChildTwo.js and ParentTwo.js)
     
-    **Note : Difference between 2 options : 
+    ** Note : Difference between 2 options : 
     1st option works only if state of parent Changes but if props changes Child will re-render 
     2nd option Child will not re-render if props or state of parent changes
 
 
+Incorrect Optimization : 
+
+    [1] ChildThree.js (wrapped with memo) will re-render event if you press count button in ParentThree.js because props.children is always a new reference (if it's a HTML Element <strong></strong> same concept of reference in objects but if normal text same concept of primitive values will not be new reference so props will not change so ChildThree will no re-render) 
+    when ParentThree.js re-render create new HTML with new reference) so you are changing the props of ChildThree every Time ParentThree.js re-render
+
+    [2] same reason on [1] ChildFive.js will re-render event if you press count button in ParentFour.js because prop is always a new reference (when ParentFour.js re-render create new person object or new handle funcion with new reference) so change props of ChildFive.js so will re-render
+
+    [3] ChildFour.js has now Date in JSX but you are wrapping it with memo so when you press on count buttion in parentThree.js ChildFour.js will not re-render (because of memo) so Date will not be updated in UI (Impure component)
+ 
