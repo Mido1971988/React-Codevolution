@@ -338,7 +338,7 @@ useEffect Hook (replacment for componentDidMount , componentDidUpdate and compon
     when the component unmounted (see HookMouse.js) (replacment componentWillUnmount in MouseClass.js)
 
 useContext Hook : 
-    * incase of nested consumers like in (ComponentC.js) you can use useContext(UserContext) and add UserContext (which is created by react.createContext() in App.js) as parameter
+    * incase of nested consumers like in (ComponentB.js) you can use useContext(UserContext) and add UserContext (which is created by react.createContext() in App.js) as parameter
     and will return value of context Provider (UserContext.Provider or ChannelContext.Provider)
     so will be easier of nested consumers
 
@@ -400,6 +400,12 @@ custome Hook :
     * EXP2. useCounter is a custome Hook and we use it with CounterOnee.js and CounterTwoo.js
     * EXP3. useinput is a custome Hook and we use it with UserForm.js
 
+Ways to cause Re-render : 
+[1] useState setter function
+[2] useReducer dispatch funcion
+[3] if parent Component re-renders
+[4] React Context
+
 Render (initial Render ) steps in React : 
     [A] Render Phase : 
         React start from Root Component Tree and move downwards and at each element invoke createElement() Method to convert JSX to React Elements and store it
@@ -433,7 +439,7 @@ useState setter function : if you change the properties of the object React will
     but if you change it to new object you changed the reference and then React will re-render (like in ObjectUseState.js )
 
 [2] if Array :
-useState setter function : same concept of object if you push values to the array you are not changing the array and still Array and same reference
+useState setter function : same concept of object if you push values to the array you are not changing the array and still same Array and same reference
 you have to change it to new Array with new reference (like in ArrayUseState.js)
 
 useReducer dispatch function : after React 18 Update will re-render Even if the same reference but will not change UI on re-render (ObjectUseReducer.js & ArrayUseReducer.js)
@@ -453,7 +459,7 @@ Parent and Child Render behavior :
     because react now do not sure props of parent is the same or not because now you can change props so will re-render Child
 
 to avoid unnecessary re-render of Child :
-    [A] you can add child as nested component inside parent component in App.js then pass the Child as paramter (like in OptimizedParentOne.js).
+    [A] same Element reference : you can add child as nested component inside parent component in App.js then pass the Child as paramter (like in OptimizedParentOne.js).
     [B] React memo : is a higher order component that's prevent the functional component to re-render if the props or stats did not change (see ChildTwo.js and ParentTwo.js)
     
     ** Note : Difference between 2 options : 
@@ -463,10 +469,22 @@ to avoid unnecessary re-render of Child :
 
 Incorrect Optimization : 
 
-    [1] ChildThree.js (wrapped with memo) will re-render event if you press count button in ParentThree.js because props.children is always a new reference (if it's a HTML Element <strong></strong> same concept of reference in objects but if normal text same concept of primitive values will not be new reference so props will not change so ChildThree will no re-render) 
+    [1] ChildThree.js (wrapped with memo) will re-render even if you press count button in ParentThree.js because props.children is always a new reference (if it's a HTML Element <strong></strong> same concept of reference in objects but if normal text same concept of primitive values will not be new reference so props will not change so ChildThree will no re-render) 
     when ParentThree.js re-render create new HTML with new reference) so you are changing the props of ChildThree every Time ParentThree.js re-render
 
     [2] same reason on [1] ChildFive.js will re-render event if you press count button in ParentFour.js because prop is always a new reference (when ParentFour.js re-render create new person object or new handle funcion with new reference) so change props of ChildFive.js so will re-render
 
     [3] ChildFour.js has now Date in JSX but you are wrapping it with memo so when you press on count buttion in parentThree.js ChildFour.js will not re-render (because of memo) so Date will not be updated in UI (Impure component)
- 
+
+to Solve Incorrect Optimization you can use useMemo & useCallback Hooks (like in ParentFour.js) :
+    we used useMemo(() => person, []) so we returned person object only one time because of empty Dependancy array event if ParentFour re-render person object is the same and same reference
+    we used useCallback(handleClick, []) so we returned callBackFunction only one time because of empty Dependancy array event if ParentFour re-render callBackFunction is the same and same reference
+
+Re-render behavior with Context (see ContextChildren.js & ContextParent.js): 
+    React render Context Provider and then check if the Provider take a new value ( value property ) if yes will re-render Context Consumer
+    but default behavior of React when Parent re-render all Childs will re-render so we have 2 options : 
+    [1] React.memo : we used MemoizedChildA = React.memo(ChildA) in ContextChildren.js then ChildC only will re-render when you press on count button in ContextParent.js
+    [2] same Element reference : you can add child as nested component inside parent component in App.js then pass the Child as paramter (like in ContextParent.js). 
+
+
+

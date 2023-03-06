@@ -13,6 +13,8 @@ import { GrandParent } from './components/Optimization/GrandParent';
 import { ParentTwo } from './components/Optimization/ParentTwo';
 import { ParentThree } from './components/Optimization/ParentThree';
 import { ParentFour } from './components/Optimization/ParentFour';
+import {ContextParent} from './components/Context/ContextParent'
+import { ChildA } from './components/Context/ContextChildren';
 
 // function App() {
 //   return (
@@ -47,7 +49,9 @@ function App(){
     // <GrandParent></GrandParent>
     // <ParentTwo></ParentTwo>
     // <ParentThree></ParentThree>
-    <ParentFour></ParentFour>
+    // <ParentFour></ParentFour>
+    // <ContextParent></ContextParent>
+    <ContextParent ><ChildA></ChildA></ContextParent>
   )
 }
 export default App;
