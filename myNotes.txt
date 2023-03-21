@@ -486,5 +486,21 @@ Re-render behavior with Context (see ContextChildren.js & ContextParent.js):
     [1] React.memo : we used MemoizedChildA = React.memo(ChildA) in ContextChildren.js then ChildC only will re-render when you press on count button in ContextParent.js
     [2] same Element reference : you can add child as nested component inside parent component in App.js then pass the Child as paramter (like in ContextParent.js). 
 
+how to create react typescript : 
+    npx create-react-app react-typescript-demo --template typescript
+
+Optional Props : 
+    you can add ? to make props optional like (messageCount?: number) in Greet.tsx
+    and we destructured const { messageCount = 0 } = props and added default value 0 if it's not exist in props
+
+when you add children to component in App.tsx file you have to write the children type in component
+    * children is just text in <Heading> so we added children : string in Heading.tsx
+    * children is another component <Oscar><Heading></Heading></Oscar> so we added children : React.ReactNode in Oscar.tsx
+    
+You can add Event handler function as prop but you have to write () => void as type in component file and if we want to use event parameter : 
+    * Event (Click Event) >>> event: React.MouseEvent<HTMLButtonElement> in Button.jsx 
+    * Event (Input Cahnge Event) >>> event: React.ChangeEvent<HTMLInputElement> in Input.jsx 
+
+You can add css properties as a prop but you have to write styles: React.CSSProperties as type in component like in (Container.tsx)
 
 
