@@ -349,8 +349,8 @@ useReducer : is used for state management (alternative to useState)
     
     * Steps of useReducer in CounterOne.js : 
         [1] create Variables of initialState and reducer function(state , action)
-        [2] use useReducer Hook whic is return pair of values (count , disptach function)
-        [3] use disptach function and it's parameter is the action argumentof reducer function
+        [2] use useReducer Hook which is return pair of values (count , disptach function)
+        [3] use disptach function and it's parameter is the action argument of reducer function
 
     * state and action (parameters of reducer function) can be objects like in CounterTwo.js
 
@@ -358,7 +358,7 @@ useReducer : is used for state management (alternative to useState)
 
     * you can combine useReducer and useContext Hooks like in ComponentD.js
 
-    * useState is mostly used when types of states are number, boolean, and string. useReducer is used when types of states are objects ad arrays.
+    * useState is mostly used when types of states are number, boolean, and string. useReducer is used when types of states are objects and arrays.
 
 react.memo : 
     * is a higher order component that's prevent the functional component to re-render if the props or stats did not change like in (Title.js or Count.js or Button.js)
@@ -503,4 +503,34 @@ You can add Event handler function as prop but you have to write () => void as t
 
 You can add css properties as a prop but you have to write styles: React.CSSProperties as type in component like in (Container.tsx)
 
+Type inference means typescript is smart enough to know the type and you do not need to write it manually EXP : 
+    * in LoggedIn.tsx => const [isLoggedIn, setIsLoggedIn] = useState(false) no need to write isLoggedIn : boolean 
+    because typescript know it's boolean and this option called Type inference
 
+if you want to add type to setState hook you can use <> like const [user, setUser] = useState<AuthUser | null>(null) in User.tsx
+and when you try to use User.name typescript will automatically add ? like (User?.name) because you wrote <AuthUser | null> so maybe User is null (not exist)
+
+Type assertion : 
+    EXP : const [user, setUser] = useState<AuthUser>({} as AuthUser) in User.tsx 
+    here you told typescript that even if user is empty object will be type AuthUser and no need to check (User?.name) if User exist or not 
+    
+    * and if you hover on setUser setter function will see React.setStateAction<AuthUser | null> because React infer that setter function will accept parameter
+    of type AuthUser or null because you write type assertion useState<AuthUser>()
+
+    * in Counter.tsx also if you hover on Disptach function will see React.dispatch<CounterAction>  because React infer that dispatch function will accept parameter
+    of type CounterAction (dispatch's argument is useReducer's 2nd parameter = action ) and you wrote in useReducer that action:CounterAction 
+    so React will infer the type
+
+discriminated union :
+    in Counter.tsx dispatch function accept parameter (action : CounterAction) but incase of reset will accept 
+    action object with only type property no payload so typescript will give you an Error that action object should be two
+    properties (type and payload) 
+    [1] you can not use optional ? like (payload?:number) because incase of increment or decrement
+    will give you an Error { count: state.count + action.payload } paylod can not be undefined
+    [2] you can add payload = 0 on reset button but not the best solution
+    [3] discriminated union : is the best solution you can create two different types (UpdateAction and ResetAction) and use 
+    type CounterAction = UpdateAction | ResetAction now typescript will be smart enough to know which one will be used
+    if you pass action parameter as an object with only one property(type) so will use ResetAction as type 
+    if you pass action parameter as an object with two properties(type and payload) so will use UpdateAction as type
+
+    
