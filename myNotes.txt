@@ -533,4 +533,13 @@ discriminated union :
     if you pass action parameter as an object with only one property(type) so will use ResetAction as type 
     if you pass action parameter as an object with two properties(type and payload) so will use UpdateAction as type
 
-    
+Context with typescript : 
+    EXP 1 : Box.tsx and theme.ts and ThemeContext.tsx
+    EPX2 : User.tsx and UserContext.tsx
+
+    **when creating context by (UserContext = createContext<UserContextType | null>(null)) in UserContext.tsx we are telling react 
+    that the type context will be UserContextType or null so when we try to use userContext?.user?.name will put ?. after userContext
+    because maybe userContext will be not exist
+    so we used instead (const UserContext = createContext({} as UserContextType)) type assertion
+
+     
