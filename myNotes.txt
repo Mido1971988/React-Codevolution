@@ -334,7 +334,7 @@ useEffect Hook (replacment for componentDidMount , componentDidUpdate and compon
 
     ** Note : to tell useEffect hook to excute the function only once (replacment componentDidMount in MouseClass.js) add second parameter empty array (see HookMouse.js)
 
-    ** Note : the function inside useEffect can return another function and this returned function will be excuted
+    ** Note : the function inside useEffect can return another function(cleanup function) and this returned function will be excuted
     when the component unmounted (see HookMouse.js) (replacment componentWillUnmount in MouseClass.js)
 
 useContext Hook : 
@@ -534,12 +534,29 @@ discriminated union :
     if you pass action parameter as an object with two properties(type and payload) so will use UpdateAction as type
 
 Context with typescript : 
-    EXP 1 : Box.tsx and theme.ts and ThemeContext.tsx
-    EPX2 : User.tsx and UserContext.tsx
+    EXP1 : Box.tsx and theme.ts and ThemeContext.tsx
+    EXP2 : User.tsx and UserContext.tsx
 
     **when creating context by (UserContext = createContext<UserContextType | null>(null)) in UserContext.tsx we are telling react 
     that the type context will be UserContextType or null so when we try to use userContext?.user?.name will put ?. after userContext
     because maybe userContext will be not exist
     so we used instead (const UserContext = createContext({} as UserContextType)) type assertion
 
-     
+non-null assertion operator : 
+    operator tells the compiler to ignore the possibility of it being null.
+    https://blog.logrocket.com/understanding-exclamation-mark-typescript/
+
+useRef with typescript : 
+    [1] ref for DOM Element (like in DomRef.tsx)
+        * we can use null! (non-null assertion operator) instead of adding (?) in inputRef.current?.focus()
+        * we added const inputRef = useRef<HTMLInputElement>(null!) because useRef() will be used in HTMLInputElement
+
+    [2] generic container which can hold a mutable value similar to instance property (like in MutableRef.tsx)
+        * here we added const interValRef = useRef<number | null>(null) number because we are assigning the id of interval to interValRef
+        * we added if (interValRef.current) in stopTimer because const interValRef = useRef<number | null>(null) and 
+        interValRef.current have possibility in window.clearInterval(interValRef.current) to be undefined and undefined not number or null
+        so we added if (interValRef.current) in stopTimer or we can const interValRef = useRef<number | undefined>(undefined)
+        
+         
+
+   
