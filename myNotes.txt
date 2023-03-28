@@ -557,6 +557,28 @@ useRef with typescript :
         interValRef.current have possibility in window.clearInterval(interValRef.current) to be undefined and undefined not number or null
         so we added if (interValRef.current) in stopTimer or we can const interValRef = useRef<number | undefined>(undefined)
         
-         
 
-   
+Difference between static field (or class variable or static variable) and instance field (instance variable) ?
+    The static fields and methods can be accessed from the class itself 
+    but Instances fields can be accessed from the instance object.
+
+Difference between using state act as instance field (variable) or regular instance field (variable) ? 
+    state act as instance variable serve different purposes. While calling setState with empty arguments will cause a render and will reflect the updated instance properties, 
+    state can be used for many more features like comparing prevState and currentState in shouldComponentUpdate to decide whether you want to render or not, 
+    or in lifecycle method like componentDidUpdate where you can take an action based on state change.
+    state is a special instance property used by react to serve special purposes. 
+    Also in setState, state updates are batched for performance reasons and state updates happen asynchronously unlike instance variable updates which happen synchronously. 
+    
+    A instance variable won't have these features.
+
+
+class component with typescript (in counter.tsx) :
+    we have to write the type of state and type of props :
+    <type of props , type of state >
+    export class Counter extends Component<CounterProps, CounterState> 
+    * if you dont use props you can skip it by adding {} like <{} , type of state >
+    * if you dont need state you can simply dont write it <CounterProps>
+
+Component Prop with typescript (in Login.tsx , Private.tsx and Profile.tsx)
+    * in Private.tsx we add Component: React.ComponentType<ProfileProps> React.ComponentType is type of react component and <ProfileProps> is type of props of this component
+    * in Private.tsx we used Aliasing destructured variables (look there)

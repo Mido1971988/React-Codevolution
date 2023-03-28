@@ -8,6 +8,8 @@ import { Oscar } from './components/props/Oscar'
 import { Button } from './components/props/Button'
 import { Input } from './components/props/Input'
 import { Container } from './components/props/Container'
+import { Private } from './components/Auth/Private';
+import { Profile } from './components/Auth/Profile';
 
 function App() {
   const personName = {
@@ -41,7 +43,8 @@ function App() {
       </Oscar> */}
       {/* <Button handleClick={(event, id) => {console.log('Button clicked', event, id)}}/> */}
       {/* <Input value='' handleChange={event => console.log(event)} /> */}
-      <Container styles={{ border: '1px solid black', padding: '1rem' }} />
+      {/* <Container styles={{ border: '1px solid black', padding: '1rem' }} /> */}
+      <Private isLoggedIn={true} component={Profile}></Private>
     </div>
   );
 }
