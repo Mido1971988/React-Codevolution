@@ -10,6 +10,9 @@ import { Input } from './components/props/Input'
 import { Container } from './components/props/Container'
 import { Private } from './components/Auth/Private';
 import { Profile } from './components/Auth/Profile';
+import { List } from './components/Generics/List';
+import { RandomNumber } from './components/Restrictions/RandomNumber';
+import { Toast } from './components/TemplateLiterals/Toast';
 
 function App() {
   const personName = {
@@ -44,7 +47,34 @@ function App() {
       {/* <Button handleClick={(event, id) => {console.log('Button clicked', event, id)}}/> */}
       {/* <Input value='' handleChange={event => console.log(event)} /> */}
       {/* <Container styles={{ border: '1px solid black', padding: '1rem' }} /> */}
-      <Private isLoggedIn={true} component={Profile}></Private>
+      {/* <Private isLoggedIn={true} component={Profile}></Private> */}
+      {/* <List
+        items={['Batman', 'Superman', 'Wonder Woman']}
+        onClick={item => console.log(item)}
+      /> */}
+      {/* <List items={[1, 2, 3]} onClick={item => console.log(item)} /> */}
+      {/* <List
+        items={[
+          {
+            id: 1,
+            first: 'Bruce',
+            last: 'Wayne'
+          },
+          {
+            id: 2,
+            first: 'Clark',
+            last: 'Kent'
+          },
+          {
+            id: 3,
+            first: 'Princess',
+            last: 'Diana'
+          }
+        ]}
+        onClick={item => console.log(item)}
+      /> */}
+      {/* <RandomNumber value={10} isPositive /> */}
+      <Toast position='center'></Toast>
     </div>
   );
 }

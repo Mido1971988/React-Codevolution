@@ -582,3 +582,39 @@ class component with typescript (in counter.tsx) :
 Component Prop with typescript (in Login.tsx , Private.tsx and Profile.tsx)
     * in Private.tsx we add Component: React.ComponentType<ProfileProps> React.ComponentType is type of react component and <ProfileProps> is type of props of this component
     * in Private.tsx we used Aliasing destructured variables (look there)
+
+Generics with typescript and react (in List.tsx): 
+    we should write <T extends > because it's not like Generic in function or Generic in classes (look at TS Elzero) you write <T> and then write the type when 
+    you invoke the the function ( fnc<number>(5) ) or when you create instance ( new Obj<string>()) 
+    but in react you are not invoking a function or creating instance you are adding the component to APP.tsx so you have to write <T extends theType> inside the component itself
+    * <T extends String> 
+    * <T extends Number> 
+    * <T extends {}> means will accept anything like type any
+    * <T extends { id: number }> means will accept object but this object must has property call id and it's value is number 
+
+Restriction with typescript (in RandomNumber) :
+    here we have 4 properties 
+    [1] value : common with all possibilities
+    [2] isPositive 
+    [3] isNegative
+    [4] isZero
+    and we want to add 2 or 3 or 4 so we created 3 types and inside each type one is :boolean and the rest are ?: never
+    then we add type RandomNumberProps = PositiveNumber | NegativeNumber | Zero and now typescript will be smart enough to know which one will be used 
+    if you add isPositive typescript will use PositiveNumber 
+    if you add isPositive and isNegative as properties inside APP.tsx typescript will throw an Error 
+
+template literals with typescript (in Toast.tsx):
+    * instead of writing 
+    type ToastProps = {
+        position : "left-center" | "left-top" | "left-bottom" | "center" | "center-top" | "center-bottom" | "right-center" | "right-top" | "right-bottom"
+    }
+    
+    * we can write and react qill be smart enough to combine all possibilities
+    type ToastProps = {
+        position: `${HorizontalPosition}-${VerticalPosition}`
+    }
+
+    * but we have problem there is possibility center-center and we want it center only so we used Exclude 'center-center' and the add or center ( | "center")
+    type ToastProps = {
+        position: Exclude<`${HorizontalPosition}-${VerticalPosition}`, 'center-center'> | 'center'
+    }
