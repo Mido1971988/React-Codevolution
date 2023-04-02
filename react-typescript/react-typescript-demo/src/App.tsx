@@ -13,6 +13,8 @@ import { Profile } from './components/Auth/Profile';
 import { List } from './components/Generics/List';
 import { RandomNumber } from './components/Restrictions/RandomNumber';
 import { Toast } from './components/TemplateLiterals/Toast';
+import { CustomButton } from './components/html/Button';
+import { Text } from './components/Polymorphic/Text';
 
 function App() {
   const personName = {
@@ -74,7 +76,20 @@ function App() {
         onClick={item => console.log(item)}
       /> */}
       {/* <RandomNumber value={10} isPositive /> */}
-      <Toast position='center'></Toast>
+      {/* <Toast position='center'></Toast> */}
+      <CustomButton variant='primary' onClick={() => console.log('Clicked')}>
+        Button Label
+      </CustomButton>
+      <RandomNumber value={10} isPositive />
+      <Text size='lg' as='h1'>
+        Heading
+      </Text>
+      <Text size='md' as='p'>
+        Paragraph
+      </Text>
+      <Text size='sm' color='secondary' as='label' htmlFor='someId'>
+        Label
+      </Text>
     </div>
   );
 }

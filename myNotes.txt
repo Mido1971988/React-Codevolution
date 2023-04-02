@@ -618,3 +618,19 @@ template literals with typescript (in Toast.tsx):
     type ToastProps = {
         position: Exclude<`${HorizontalPosition}-${VerticalPosition}`, 'center-center'> | 'center'
     }
+
+wrapping HTML Element (in Button.tsx and Input.tsx) : 
+    * if you want to add types of all properties of an HTML Element you can use React.ComponentProps<'button'>
+    * in Button.tsx we added custom property called variant so we have to write it's type so we added variant: 'primary' | 'secondary'
+    * in Button.tsx we added type children : string but when you hover on children you will see string | React.ComponentProps
+    and if you want to be only string you can use Omit keyword like Omit<React.ComponentProps<'button'>, 'children'> 
+    and Omit means the use types (React.ComponentProps) of all properties except children
+    * we can use ... to add rest of properties like ( {...rest})
+
+Extracting a Components Prop Types (in CustomComponents.tsx) : 
+    * you can use types from another Component (Greet.tsx) and use it inside CustomComponents.tsx by adding props: React.ComponentProps<typeof Greet>
+
+Polymorphic Component (in Text.tsx) :
+    * we added Omit<React.ComponentProps<E>, keyof TextOwnProps<E>> 
+    because we do not want conflict between the types of own props and types of all default props of React.ComponentProps
+    
