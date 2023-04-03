@@ -633,4 +633,42 @@ Extracting a Components Prop Types (in CustomComponents.tsx) :
 Polymorphic Component (in Text.tsx) :
     * we added Omit<React.ComponentProps<E>, keyof TextOwnProps<E>> 
     because we do not want conflict between the types of own props and types of all default props of React.ComponentProps
-    
+
+
+------------------------------
+
+- Redux : is a predictable state container for JS Apps.
+- React-Redux : is a library that provides bindings to use React and Redux together in an application.
+
+* React-Redux helps you to manage state and use it for different component because state container will be outside component tree
+so no need to share state between parent and childs or grand childs
+* useContext + useReducer can solve this problem also but React-Redux is more useful with big projects
+
+Steps To create Redux project : 
+[1] npm init —yes
+[2] npm install redux
+
+* JS doesn’t have access to change state in Redux state container directly it should tell mediator ( Reducer ) what changes to the state ( action ) and the mediator ( Reducer ) will inform the Store the required changes on the state 
+
+* Reducer accepts two parameters ( previous state , action )  and return the new state to the application 
+
+
+Action : 
+* plain JS object 
+* Must have type property ( string )
+
+Action creator : is a function that return an action object
+
+
+Redux Store : 
+* allow access to state by getState() method
+* Allow state to be updated by dispatch(action)
+* Register listener via subscribe(listener) this is the link between store and JS application ( will execute listener function each time state changes) 
+* You can unregister to the store by calling the function returned by subscribe(listener) 
+
+To create Redux store 
+[1] Const redux = require(‘redux’)
+[2] const store = redux.createStore(reducer) 
+[3] const unsubscribe = store.subscribe(listener)
+[4] store.dispatch(action)
+[5] unsubsrcibe() 
