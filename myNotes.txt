@@ -672,3 +672,21 @@ To create Redux store
 [3] const unsubscribe = store.subscribe(listener)
 [4] store.dispatch(action)
 [5] unsubsrcibe() 
+
+
+Combine reducers :
+You can use one reducer for multiple actions but for large projects it’s better to use multiple reducers with multiple actions 
+
+Steps : 
+[1] const rootReducer =redux.combinereducers({cake: cakeReducer , iceCream : iceCreamducer })
+
+Middleware : 
+Provides a 3rd party extension point between dispatching an action and the moment it reaches the reducer ( will show you what happend will show you each step at console)
+
+
+* To install it ( npm install redux-logger )
+
+Steps : 
+[1] const reduxLogger = require(“redux-logger”)
+[2] const logger = reduxLogger.createLogger()
+[3] const store = redux.createStore(rootReducer , reduxLogger.applyMiddleware(logger))
