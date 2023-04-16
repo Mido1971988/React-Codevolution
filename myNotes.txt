@@ -645,7 +645,7 @@ so no need to share state between parent and childs or grand childs
 * useContext + useReducer can solve this problem also but React-Redux is more useful with big projects
 
 Steps To create Redux project : 
-[1] npm init —yes
+[1] npm init --yes
 [2] npm install redux
 
 * JS doesn’t have access to change state in Redux state container directly it should tell mediator ( Reducer ) what changes to the state ( action ) and the mediator ( Reducer ) will inform the Store the required changes on the state 
@@ -681,12 +681,30 @@ Steps :
 [1] const rootReducer =redux.combinereducers({cake: cakeReducer , iceCream : iceCreamducer })
 
 Middleware : 
-Provides a 3rd party extension point between dispatching an action and the moment it reaches the reducer ( will show you what happend will show you each step at console)
+Provides a 3rd party extension point between dispatching an action and the moment it reaches the reducer 
 
-
-* To install it ( npm install redux-logger )
-
+* To install Logger ( npm install redux-logger ) ( will show you what happend , will show you each step at console)
 Steps : 
 [1] const reduxLogger = require(“redux-logger”)
 [2] const logger = reduxLogger.createLogger()
-[3] const store = redux.createStore(rootReducer , reduxLogger.applyMiddleware(logger))
+[3] const store = redux.configureStore(rootReducer , reduxLogger.applyMiddleware(logger))
+
+* To install Redux-Thunk ( npm install redux-thunk) (to allow action creator to return a function instead of action object and this function accept dispatch as parameter)
+Steps : 
+[1] const thunkMiddleware = require(“redux-thunk).default
+[3] const store = redux.configureStore(rootReducer , redux.applyMiddleware(thunkMiddleware))
+** note ( in userActions.js) : disptach(fetchUsers()) when this line get excuted then redux Middleware checks what it return , if it's object then excute as always 
+if it returns a function then pass dispatch as an argument to that function.
+
+* Steps to create react redux project: 
+[1] npx create-react-app <project name>
+[2] npm install redux react-redux
+
+* The connect() function connects a React component to a Redux store.
+    steps of connect: 
+    [1] mapStateToProps allow access to state like getState() method 
+    [2] mapDispatchToProps Allow state to be updated like dispatch(action)
+    [3] Connect method from redux connects your React component to store and subscribe it to state changes
+
+The mapStateToProps and mapDispatchToProps deals with your Redux store’s state and dispatch, respectively. state and dispatch will be supplied to your mapStateToProps or mapDispatchToProps functions as the first argument.
+
