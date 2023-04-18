@@ -708,3 +708,5 @@ if it returns a function then pass dispatch as an argument to that function.
 
 The mapStateToProps and mapDispatchToProps deals with your Redux store’s state and dispatch, respectively. state and dispatch will be supplied to your mapStateToProps or mapDispatchToProps functions as the first argument.
 
+* useSelector hook : is a function that accepts argument another function and the parameter of this function is state ( like mapStateToProps ) and useSelector hook returns what ever it’s argument function returns 
+* UseDispatch hook : is a function that returns a reference to dispatch function 
