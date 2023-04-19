@@ -706,7 +706,37 @@ if it returns a function then pass dispatch as an argument to that function.
     [2] mapDispatchToProps Allow state to be updated like dispatch(action)
     [3] Connect method from redux connects your React component to store and subscribe it to state changes
 
-The mapStateToProps and mapDispatchToProps deals with your Redux store’s state and dispatch, respectively. state and dispatch will be supplied to your mapStateToProps or mapDispatchToProps functions as the first argument.
+* The mapStateToProps and mapDispatchToProps deals with your Redux store’s state and dispatch, respectively. state and dispatch will be supplied to your mapStateToProps or mapDispatchToProps functions as the first argument.
+    - mapStateToProps accept 2nd parameter (ownProps) so you can access props of component like in (ItemContainer.js) in this EXP. we can use ItemContainer for both cake and ice cream depends on props passed to this component
+    - mapDispatchToProps accept 2nd parameter (ownProps) so you can access props of component like in (ItemContainer.js) in this EXP. we can use ItemContainer for both cake and ice cream depends on props passed to this component
 
 * useSelector hook : is a function that accepts argument another function and the parameter of this function is state ( like mapStateToProps ) and useSelector hook returns what ever it’s argument function returns 
 * UseDispatch hook : is a function that returns a reference to dispatch function 
+
+* Steps of Middleware logger : 
+    [1] npm i redux-logger
+    [2] import { createStore , applyMiddleware} from 'redux'
+    [3] const store = createStore(rootReducer , applyMiddleware(logger)) in rootReducer.js
+
+* Steps of redux devtools extension : 
+    [1] npm install --save -redux-devtools-extension
+    [2] import { composeWithDevTools } from 'redux-devtools-extension'
+    [3] const store = createStore(rootReducer ,composeWithDevTools( applyMiddleware(logger)))
+
+* in NewCakeContainer.js weadded input html element to ask customer how many cakes he wants to buy 
+then add the number as argument to action creator function then this number will be added as payload property in action object
+
+* Steps of Async in react-redux in (userContainer.js): 
+    [1] you need axios (for Async API calls) 
+    [2] you need Thunk Middleware (to allow action creator to return a function instead of action object and this function accept dispatch as parameter)
+    ** you can install both packages by ( npm install axios redux-thunk )
+    [3] you need to use useEffect hook with empty array as Dependancy array
+    
+* conclusion how react-redux works : 
+    [1] create component inside components folder ( mapStateToProps & mapDispatchToProps with connect like in CakeContainer) or (useSelector and UseDispatch Hooks)
+    [2] create Actions , Types and Reducer inside redux folder  
+    [3] create rootReducer.js if we want to combine more than one Reducer
+    [4] create store.js to create store and add applyMiddleware if needed
+    [5] create index.js if we want to import from ../redux folder without write specific location like import { buyCake, buyIceCream } from '../redux'
+    ** incase of Async we need to add thunk Middleware in store.js and use useEffect Hook in component and make async calls in Actions.js
+
