@@ -740,3 +740,40 @@ then add the number as argument to action creator function then this number will
     [5] create index.js if we want to import from ../redux folder without write specific location like import { buyCake, buyIceCream } from '../redux'
     ** incase of Async we need to add thunk Middleware in store.js and use useEffect Hook in component and make async calls in Actions.js
 
+---------------------------------
+
+*React library : is fully featured client and server side routing library for React
+-Helps to create and navigate between different URLs to make up your web application
+-Provides unique URLs for different components
+In the app and makes the UI easily shareable with other users
+
+*Steps to create React-router app : 
+[1] create react app : 
+npx create-react-app react-router-demo
+[2] add react router liberty: 
+yarn add react-router-dom@6
+or 
+npm install react-router-dom@6
+
+*Steps for configuring route in react: 
+[1] import BrowserRouter inside index.js :
+Import { BrowserRouter } from ‘react-router-dom’ 
+[2] wrap app with BrowserRouter inside index.js
+[3] import Routes and Route inside App.js: 
+Import { Routes , Route } from ‘react-router-dom’ 
+[4] add two props to Route component ( path & element) 
+<Route path=‘about’ element={<Abou/t>}/>
+
+*Steps for creating navbar : 
+[1] Create Navbar component and inside it import Link or NavLink component:
+Import { Link }  from ‘react-router-dom’ 
+Import { NavLink }  from ‘react-router-dom’ 
+[2] if you want to add styles add it inside index.css
+[3] add prop (to) Link component : 
+<Link to=‘/about’>About</Link> 
+
+*Difference between Link and NavLink 
+When you press NavLink will add class (active) 
+To the clicked link and then you can is this in css styling ( inside index.css ) 
+or use style property in NavLink and inside this style prop add function which accepts isActive as parameter 
+and returns object contains the css styles
