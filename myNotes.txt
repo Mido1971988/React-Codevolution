@@ -742,38 +742,59 @@ then add the number as argument to action creator function then this number will
 
 ---------------------------------
 
-*React library : is fully featured client and server side routing library for React
--Helps to create and navigate between different URLs to make up your web application
--Provides unique URLs for different components
-In the app and makes the UI easily shareable with other users
+*React router library : is fully featured client and server side routing library for React
+    -Helps to create and navigate between different URLs to make up your web application
+    -Provides unique URLs for different components
+    In the app and makes the UI easily shareable with other users
 
 *Steps to create React-router app : 
-[1] create react app : 
-npx create-react-app react-router-demo
-[2] add react router liberty: 
-yarn add react-router-dom@6
-or 
-npm install react-router-dom@6
+    [1] create react app : 
+    npx create-react-app react-router-demo
+    [2] add react router liberty: 
+    yarn add react-router-dom@6
+    or 
+    npm install react-router-dom@6
 
 *Steps for configuring route in react: 
-[1] import BrowserRouter inside index.js :
-Import { BrowserRouter } from ‘react-router-dom’ 
-[2] wrap app with BrowserRouter inside index.js
-[3] import Routes and Route inside App.js: 
-Import { Routes , Route } from ‘react-router-dom’ 
-[4] add two props to Route component ( path & element) 
-<Route path=‘about’ element={<Abou/t>}/>
+    [1] import BrowserRouter inside index.js :
+    Import { BrowserRouter } from ‘react-router-dom’ 
+    [2] wrap app with BrowserRouter inside index.js
+    [3] import Routes and Route inside App.js: 
+    Import { Routes , Route } from ‘react-router-dom’ 
+    [4] add two props to Route component ( path & element) 
+    <Route path=‘about’ element={<Abou/t>}/>
 
 *Steps for creating navbar : 
-[1] Create Navbar component and inside it import Link or NavLink component:
-Import { Link }  from ‘react-router-dom’ 
-Import { NavLink }  from ‘react-router-dom’ 
-[2] if you want to add styles add it inside index.css
-[3] add prop (to) Link component : 
-<Link to=‘/about’>About</Link> 
+    [1] Create Navbar component and inside it import Link or NavLink component:
+    Import { Link }  from ‘react-router-dom’ 
+    Import { NavLink }  from ‘react-router-dom’ 
+    [2] if you want to add styles add it inside index.css
+    [3] add prop (to) Link component : 
+    <Link to=‘/about’>About</Link> 
 
 *Difference between Link and NavLink 
-When you press NavLink will add class (active) 
-To the clicked link and then you can is this in css styling ( inside index.css ) 
-or use style property in NavLink and inside this style prop add function which accepts isActive as parameter 
-and returns object contains the css styles
+    When you press NavLink will add class (active) 
+    To the clicked link and then you can is this in css styling ( inside index.css ) 
+    or use style property in NavLink and inside this style prop add function which accepts isActive as parameter 
+    and returns object contains the css styles
+
+* The useNavigate hook returns a function (navigate function) that lets you navigate programmatically(navigates to the other routers using the push or replace methods)
+    note : If using replace: true (as second parameter in navigate function), the navigation will replace the current entry in the history stack instead of adding a new one (by using push method).
+    see OrderSummary.js and Home.js
+
+* if the user try to write wrong route you can add <Route path='*' element={<NoMatch/>}/> in App.js to route the user to NoMatch page
+ - note : path='*' means any path not exist in Routes
+
+* nested Routes :  you can easily nest <Route><Route/></Route> see Products.js 
+    - note : do not forget to import import { Link, Outlet } from 'react-router-dom' and use Outlet component inside Products.js
+    An <Outlet> should be used in parent route elements to render their child route elements. This allows nested UI to show up when child routes are rendered
+
+* index Route : if you want to render child nested component automatically when parent render you can use 
+    <Route index element={<FeaturedProducts/>}/> with index instead of path prop now when go to / products will 
+    render product parent and FeaturedProducts child
+    - note : Difference between adding <Route path="/users/admin" element /> and <Route path="user" element><Route path="admin" element/></Route>
+    is nested child will render under parent so on webpage you will see both parent and child 
+    but incase path="/users/admin" you will see only admin page without users page
+    
+* Dynamic Route : ":" colon is used to make the route dynamic and the parameters can be accessed using the name "userId" (by using useParam hook )as provided in the route path after colon.
+    see Users.js , 
