@@ -798,3 +798,28 @@ then add the number as argument to action creator function then this number will
     
 * Dynamic Route : ":" colon is used to make the route dynamic and the parameters can be accessed using the name "userId" (by using useParam hook )as provided in the route path after colon.
     see Users.js , 
+
+* useParam Hook see(UserDetails.js): 
+    [1] import { useParams } from 'react-router-dom'
+    [2] useParams() returns object contains dynamic Route ( ":" colon )
+    [3] you can destructuring it const { userId } = useParams()
+
+* useSearchParams Hook see(Users.js) : 
+    [1] import { useSearchParams } from 'react-router-dom'
+    [2] const [searchParams, setSearchParams] = useSearchParams() ( same concept of useState Hook)
+
+* Relative Links see(Products.js) : 
+    <Link to='featured'>Featured</Link>
+    here if we write to='/featured' the link will be from Root not from the current URL
+
+* Lazy Loading see(App.js) : 
+    <Suspense> component that lets you “wait” for some code to load 
+    and you can add component (fallback='component') or just string (fallback='Loading...') that will be shown to webpage while we’re waiting
+    [1] import React from 'react'
+    [2] const LazyAbout = React.lazy(() => import('./components/About'))
+    [3] <React.Suspense fallback='Loading...'><LazyAbout /></React.Suspense>
+
+* Authentication and protected Routes
+    https://youtu.be/X8eAbu1RWZ4
+    -note : A <Navigate> element changes the current location when it is rendered. It's a component wrapper around useNavigate, and accepts all the same arguments as props.
+    Having a component-based version of the useNavigate hook makes it easier to use this feature in a React.Component subclass where hooks are not able to be used.
