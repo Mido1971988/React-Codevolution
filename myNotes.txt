@@ -823,3 +823,33 @@ then add the number as argument to action creator function then this number will
     https://youtu.be/X8eAbu1RWZ4
     -note : A <Navigate> element changes the current location when it is rendered. It's a component wrapper around useNavigate, and accepts all the same arguments as props.
     Having a component-based version of the useNavigate hook makes it easier to use this feature in a React.Component subclass where hooks are not able to be used.
+
+---------------------------
+*Steps to create React-table app : 
+    [1] create react app : 
+    npx create-react-app react-table-demo
+    [2] add react table liberty: 
+    yarn add react-table
+    or 
+    npm install react-table
+
+* Steps to create basic table (BasicTable.js , MOCK_DATA.json , columns.js , table.css) : 
+    [1] Get the date you want to display 
+        (to create MOC-data (JSON File) use https://mockaroo.com/)
+    [2] Define the Columns for you table ( in columns.js)
+        - Header : your custom name of column
+        - Accessor : the name of column inside JSON file
+        * You can choose what columns you want to extract from JSON file you should not extract all columns from JSON file
+        * useMemo hook to ensure data doesn’t recreated every render
+    [3] Use the data and columns defined to create a table instance 
+        -using useTable Hook from react-table (in BasicTable.js )
+    [4] Define a basic table structure using plain HTML
+        - in BasicTable.js
+    [5] Use the table instance created in step 3 to bring life to the HTML defined in step 4 
+        - in BasicTable.js
+    [6] Include the desired CSS
+        - in table.css
+
+
+ 
+
