@@ -1,10 +1,12 @@
 import { format } from 'date-fns'
+// import { ColumnFilter } from './ColumnFilter'
 
 export const COLUMNS = [
   {
     Header: 'Id',
     Footer: 'Id',
     accessor: 'id',
+    // Filter: ColumnFilter,
     disableFilters: true,
     sticky: 'left'
   },
@@ -12,18 +14,21 @@ export const COLUMNS = [
     Header: 'First Name',
     Footer: 'First Name',
     accessor: 'first_name',
+    // Filter: ColumnFilter,
     sticky: 'left'
   },
   {
     Header: 'Last Name',
     Footer: 'Last Name',
     accessor: 'last_name',
+    // Filter: ColumnFilter,
     sticky: 'left'
   },
   {
     Header: 'Date of Birth',
     Footer: 'Date of Birth',
     accessor: 'date-of-birth',
+    // Filter: ColumnFilter,
     Cell: ({ value }) => {
       return format(new Date(value), 'dd/MM/yyyy')
     }
@@ -31,22 +36,26 @@ export const COLUMNS = [
   {
     Header: 'Country',
     Footer: 'Country',
-    accessor: 'country'
+    accessor: 'country',
+    // Filter: ColumnFilter,
   },
   {
     Header: 'Phone',
     Footer: 'Phone',
-    accessor: 'phone'
+    accessor: 'phone',
+    // Filter: ColumnFilter,
   },
   {
     Header: 'Email',
     Footer: 'Email',
-    accessor: 'email'
+    accessor: 'email',
+    // Filter: ColumnFilter,
   },
   {
     Header: 'Age',
     Footer: 'Age',
-    accessor: 'age'
+    accessor: 'age',
+    // Filter: ColumnFilter,
   },
 ]
 

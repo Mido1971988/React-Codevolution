@@ -875,8 +875,36 @@ then add the number as argument to action creator function then this number will
         Npm install date-fns
 
 
- * Filtering (in ) : 
+ * Filtering (in FilteringTable.js) : 
     [1] Global filter : for all columns
         - useGlobalFilter hook : you can add it as 2nd argument to useTable hook so you can destructuring state and setGlobalFilter from useTable hook  then we can destructuring globalFilter from state
         - Add GlobalFilter component from GlobalFilter.js and add globalFilter and setGlobalFilter as props to this component 
     [2] Column filter : for specific column
+        - useFilters hook : you can add it as 2nd argument to useTable hook 
+        - Add ColumnFilter component (Filter: ColumnFilter) to every column in columns.js
+        - column.render('Filter') in FilteringTable.js
+
+    * note : if you do not need to add (Filter: ColumnFilter) to every column you can use defaultColumn (dont forget to add it as an argument to useTable hook)will add it automatically to each column
+    * useAsyncDebounce : incase of big data for better performance recommended to use useAsyncDebounce hook 
+    will filter every 1 sec not every time to type a letter 
+        - import { useAsyncDebounce } from 'react-table'
+        - const [value, setValue] = useState(filter)
+        - const onChange = useAsyncDebounce(value => {setFilter(value || undefined)}, 1000)
+
+
+ * Pagination (in PaginationTable.js) :
+    - usePagination : you can add it as 2nd argument to useTable hook so you can destructuring (
+    page ,
+    nextPage,
+    previousPage,
+    canPreviousPage,(Boolean value true if not first page and can go back false if first page)  
+    canNextPage,(Boolean value true if not last page and can go forward false if last page)
+    pageOptions, (can get number of pages by pageOptions.length)
+    state, (then we can destructuring pageIndex, pageSize from state)
+    gotoPage,
+    pageCount,
+    setPageSize,
+    )
+
+    * note : if we want to start page at specific page add this (initialState: { pageIndex: 2 }) as an argument to useTable Hook
+    * note : if we want to change page size we can use setPageSize function and destructuring pageSize from state
