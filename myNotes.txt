@@ -908,3 +908,21 @@ then add the number as argument to action creator function then this number will
 
     * note : if we want to start page at specific page add this (initialState: { pageIndex: 2 }) as an argument to useTable Hook
     * note : if we want to change page size we can use setPageSize function and destructuring pageSize from state
+
+* Row Selection :
+    - useRowSelect hook : you can add it as 2nd argument to useTable hook so you can destructure selectedFlatRows
+
+* Column Order (in ColumnOrder.js) :
+    - useColumnOrder hook : you can add it as 2nd argument to useTable hook so you can destructure setColumnOrder method from the useTable Hook
+    then you can use setColumnOrder method which accepts array of column (accessor) and will change the order of table like order of accessors in this array
+
+* Column Hiding (in ColumnHiding.js) : 
+    - you can destructure (allColumns,getToggleHideAllColumnsProps) from useTable Hook directly no need to add another hook as 2nd argument
+    - add getToggleHideAllColumnsProps if you want to hide all columns
+    - add column.getToggleHiddenProps() if you want to hide one column only
+
+* Sticky Columns  (in StickyColumns.js):
+    - install package ( npm i react-table-sticky )
+    - install package ( npm i styled-components )
+    - useBlockLayout, useSticky hooks : you can add them as 2nd argument to useTable hook
+    - in columns.js add sticky: 'left' to the desired column
