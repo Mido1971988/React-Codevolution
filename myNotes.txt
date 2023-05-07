@@ -825,6 +825,8 @@ then add the number as argument to action creator function then this number will
     Having a component-based version of the useNavigate hook makes it easier to use this feature in a React.Component subclass where hooks are not able to be used.
 
 ---------------------------
+
+
 *Steps to create React-table app : 
     [1] create react app : 
     npx create-react-app react-table-demo
@@ -926,3 +928,27 @@ then add the number as argument to action creator function then this number will
     - install package ( npm i styled-components )
     - useBlockLayout, useSticky hooks : you can add them as 2nd argument to useTable hook
     - in columns.js add sticky: 'left' to the desired column
+
+-----------------------
+
+* Storybook : is an isolated development environment and playground for UI Component ( create component independently ) 
+
+ 
+* Install storybook package: 
+- npx create-react-app react-storybook-v6
+- npx sb init
+
+* In main.js in .storybook folder there is () that means will search for any file called .stories.js and will search inside this file for default export and named exports and run them so we don’t add button component to App.js
+
+
+* You can change story name like in ( Input.stories.js) Small.storyName = “Small Input”
+
+* If you want to sort stories alphabetically you can copy options object from stories docs and paste it in preview.js 
+
+* You can merge stories in one story ( story within story ) like in ( Subscription.stories.js ) added Primary from input.stories and Large from Button.stories to Subsriptions.Stories.js
+
+* Args can be used to dynamically change props, slots, styles, inputs, etc. It allows Storybook and its addons to live edit components
+
+* When an arg’s value changes, the component re-renders, allowing you to interact with components in Storybook’s UI via addons that affect args.
+
+* The args object can be defined at the story story level or component level ( in export default and will be applied to all stories components but if story component has same property will override it ) or global level
