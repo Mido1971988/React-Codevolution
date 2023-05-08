@@ -947,8 +947,20 @@ then add the number as argument to action creator function then this number will
 
 * You can merge stories in one story ( story within story ) like in ( Subscription.stories.js ) added Primary from input.stories and Large from Button.stories to Subsriptions.Stories.js
 
-* Args can be used to dynamically change props, slots, styles, inputs, etc. It allows Storybook and its addons to live edit components
+* Args in(Button.stories.js): 
+    - Args can be used to dynamically change props, slots, styles, inputs, etc. It allows Storybook and its addons to live edit components
+    - When an arg’s value changes, the component re-renders, allowing you to interact with components in Storybook’s UI via addons that affect args.
+    - The args object can be defined at the story story level or component level ( in export default and will be applied to all stories components but if story component has same property will override it ) or global level
 
-* When an arg’s value changes, the component re-renders, allowing you to interact with components in Storybook’s UI via addons that affect args.
+* Decorator : 
+    for EXP. to center button without decorator:
+        [1] Create center.css and center.js
+        [2] wrap every story button with <Center></Center>
+    with decorator :
+        write this (decorators: [story => <Center>{story()}</Center>],) to default export in Button.stories.js 
+        and will wrap every story with <Center></Center> 
+        * note every entry inside array of decorators is a function whichs accept story as an argument
+    to add global decorators : 
+        [1] decorators: [Story => (<Center><Story/></Center>)] in preview.js
 
-* The args object can be defined at the story story level or component level ( in export default and will be applied to all stories components but if story component has same property will override it ) or global level
+    
