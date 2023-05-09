@@ -959,8 +959,32 @@ then add the number as argument to action creator function then this number will
     with decorator :
         write this (decorators: [story => <Center>{story()}</Center>],) to default export in Button.stories.js 
         and will wrap every story with <Center></Center> 
-        * note every entry inside array of decorators is a function whichs accept story as an argument
-    to add global decorators : 
-        [1] decorators: [Story => (<Center><Story/></Center>)] in preview.js
 
-    
+        * note : every entry inside array of decorators is a function whichs accept story as an argument
+        * note : addDecorator no longer supported in V6 or V7
+
+    to add global decorators : 
+        decorators: [Story => (<Center><Story/></Center>)] in preview.js
+
+* Theming : 
+    - install Chakra UI Packages : npm i @chakra-ui/react @emotion/react @emotion/styled framer-motion
+    - same concept of decorators you wrap stories with theme (like wrap stories with <Center></Center> in Button.stories.js)
+    to add global decorators : 
+        decorators: [(Story) => (
+                <ThemeProvider theme={theme}>
+                    <CSSReset />
+                    <Box m='4'>
+                    <Story />
+                    </Box>
+                </ThemeProvider>
+                )] 
+                in preview.js
+
+    * note : <Box m="4"> to add margin to the button    
+             <CSSReset/> to add CSS from Chakra UI Packages
+
+* Addon : 
+    * Controls : be sure that you are using arg (const Template =  args => <Button {...args} /> in ChakraButton.stories.js) without args controls addon will not work
+    * Actions : for EXP. onClick Action we added ({ onClick: { action: 'clicked' } } to argTypes in in ChakraButton.stories.js)
+    * Docs : in V6 was a tab in toolbar but in V7 is a seperate file and if you need to add it be sure to write (docs: {autodocs: true}) in main.js 
+

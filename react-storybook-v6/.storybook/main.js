@@ -3,6 +3,8 @@ const config = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
   addons: [
     "@storybook/addon-links",
+    "@storybook/addon-docs",
+    "@storybook/addon-viewport",
     "@storybook/addon-essentials",
     "@storybook/preset-create-react-app",
     "@storybook/addon-interactions",
@@ -12,7 +14,8 @@ const config = {
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    // autodocs: "tag",
+    autodocs: true,
   },
   staticDirs: ["../public"],
 };
