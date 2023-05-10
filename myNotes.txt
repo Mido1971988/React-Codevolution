@@ -984,7 +984,23 @@ then add the number as argument to action creator function then this number will
              <CSSReset/> to add CSS from Chakra UI Packages
 
 * Addon : 
-    * Controls : be sure that you are using arg (const Template =  args => <Button {...args} /> in ChakraButton.stories.js) without args controls addon will not work
-    * Actions : for EXP. onClick Action we added ({ onClick: { action: 'clicked' } } to argTypes in in ChakraButton.stories.js)
-    * Docs : in V6 was a tab in toolbar but in V7 is a seperate file and if you need to add it be sure to write (docs: {autodocs: true}) in main.js 
-
+    * Controls : ( by default in V7 ) be sure that you are using arg (const Template =  args => <Button {...args} /> in ChakraButton.stories.js) without args controls addon will not work
+    * Actions : ( by default in V7 ) Log user action and work really well with args mechanism for EXP. onClick Action we added ({ onClick: { action: 'clicked' } } to argTypes in in ChakraButton.stories.js)
+    * Docs : ( by default in V7 ) in V6 was a tab in toolbar but in V7 is a seperate file and if you need to add it be sure to write (docs: {autodocs: true}) in main.js 
+    * viewport :(by default in V7) will add icons to toolbar 
+        - if you want to add more options of viewport like more mobile phones steps :
+            [1] import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport'in preview.js
+            [2] viewport: {viewports: INITIAL_VIEWPORTS,} in parameters in preview.js
+    * Console : not supported yet in V7
+    * Knobs : supported in V7 
+        steps : 
+            [1] install Knobs package ( npm install @storybook/addon-knobs --dev )
+            [2] add "@storybook/addon-knobs" in main.js
+            [3] add import { withKnobs } from '@storybook/addon-knobs'; and add withKnobs to Decorators
+            [4] add import { text, boolean } from '@storybook/addon-knobs' in story
+        - note : but when disable button you can not see stop sign like in V5 but still diabled no problem 
+    * A11y : Test component compliance with web accessibility standards
+        steps : 
+        [1] install a11 package (npm i -D @storybook/addon-a11y)
+        [2] add "@storybook/addon-a11y" in main.js 
+    

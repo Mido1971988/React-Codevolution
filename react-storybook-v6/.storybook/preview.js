@@ -2,6 +2,8 @@
 import Center from '../src/components/Center/Center'
 import React from 'react'
 import { ThemeProvider, theme, CSSReset, Box } from '@chakra-ui/react'
+import { withKnobs } from '@storybook/addon-knobs';
+import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport'
 
 const preview = {
   parameters: {
@@ -16,6 +18,9 @@ const preview = {
       storySort: (a, b) =>
         a.id === b.id ? 0 : a.id.localeCompare(b.id, undefined, { numeric: true }),
     },
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+    }
   },
   // decorators: [Story => (<Center><Story/></Center>)]
   decorators : [(Story) => (
@@ -25,7 +30,8 @@ const preview = {
           <Story />
         </Box>
     </ThemeProvider>
-  )]
+  ),
+  withKnobs]
 };
 
 
