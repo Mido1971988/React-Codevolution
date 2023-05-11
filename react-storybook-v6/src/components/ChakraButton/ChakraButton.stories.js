@@ -27,7 +27,7 @@ export const Log = Template.bind({})
 Log.args = {
   colorScheme : 'blue',
   children: 'Log',
-  // onClick : () => console.log("Log Clicked")
+  onClick : () => console.log("Log Clicked" , process.env.STORYBOOK_THEME)
 }
     
 

@@ -1002,5 +1002,10 @@ then add the number as argument to action creator function then this number will
     * A11y : Test component compliance with web accessibility standards
         steps : 
         [1] install a11 package (npm i -D @storybook/addon-a11y)
-        [2] add "@storybook/addon-a11y" in main.js 
+        [2] add "@storybook/addon-a11y" in main.js
+
+* Environment Variable : 
+    [1] STORYBOOK_ in package.json file in scripts ("storybook": "STORYBOOK_THEME=dark storybook dev -p 6006",)
+    [2] access it by (process.env.STORYBOOK_THEME)
+    * note in window add (set STORYBOOK_THEME=dark &&) in mac without (set and &&)
     
