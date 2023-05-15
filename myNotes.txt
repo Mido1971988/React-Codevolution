@@ -1020,9 +1020,19 @@ then add the number as argument to action creator function then this number will
 * install formik package : 
 npm i formik
 
-* useFormik hook (in YoutubeFormik.js): is a function which accepts object and this object has properties like  :
-[1] intialValues and value of this property is an object and properties of this object should be the same name attribute in input element 
-[2] onSubmit and value of this property is a function which accept form state object (formik.values )  as an argument and this function automatically executes once you press on Submit Button
+* useFormik hook (in YoutubeFormik.js): is a function thats return a formik object has proberties and methods like (values , initialValues , handleChange ,...) 
+and accepts argument object and this object can has  properties like  :
+[1] intialValues : and value of this property is an object and properties of this object should be the same name attribute in input element 
+[2] onSubmit : and value of this property is a function which accept form state object (formik.values )  as an argument and this function automatically executes once you press on Submit Button
+[3] validate : and value of this property is a function which accept form state object (formik.values )  as an argument and return error object which is change errors proberty inside formik object
 
 * useFormik hook will return an object which is has handleChange method (formik.handleChange() or formik.handleSubmit() ) and value (formik.values) .  Like setState and state in useState Hook 
+
 - note : formik.handleSubmit() will invoke onSubmit function inside the argument object of useFormik hook and will stop refresh the page automatically when press submit button 
+
+- note : onBlur={formik.handleBlur} will add proberty (name of property is the name of element and the value is boolean true if you blur inside input element) to formik.touched 
+    then we can use formik.touched.name or email or channel to check if you clicked inside this input element or not
+    so you will validate only this input element not all input elements
+
+* Yup liberary : liberary to validate form 
+    to install : npm i Yup
