@@ -1020,7 +1020,7 @@ then add the number as argument to action creator function then this number will
 * install formik package : 
 npm i formik
 
-* useFormik hook (in YoutubeFormik.js): is a function thats return a formik object has proberties and methods like (values , initialValues , handleChange ,...) 
+* useFormik hook (in OldYoutubeFormik.js): is a function thats return a formik object has proberties and methods like (values , initialValues , handleChange ,...) 
 and accepts argument object and this object can has  properties like  :
 [1] intialValues : and value of this property is an object and properties of this object should be the same name attribute in input element 
 [2] onSubmit : and value of this property is a function which accept form state object (formik.values )  as an argument and this function automatically executes once you press on Submit Button
@@ -1036,3 +1036,30 @@ and accepts argument object and this object can has  properties like  :
 
 * Yup liberary : liberary to validate form 
     to install : npm i Yup
+
+* instead of adding [ onChange={formik.handleChange} onBlur={formik.handleBlur} value={formik.values.name}] to each input element in Form 
+we can add {...formik.getFieldProps("name")} (argument is the value of name attribute) and will add onChange , onBlur and value attribute automatically
+
+* Formik component is a substitute for useFormik hook and steps are (in YoutubeFrom.js) : 
+[1] import Formik instead of useFormik
+[2] wrap the entire form with Formik component <Formik></Formik> 
+[3] add the arguments we added before to useFormik hook () as attributes to Formik Component 
+
+* Form component instead of form element (in YoutubeForm.js) : 
+[1] import {Form} form “formik”
+[2] add Form component instead of <form></form> element
+[3] remove onSubmit event prop because Form component will add it automatically 
+
+* Field component instead of input element (in YoutubeForm.js) : 
+[1] import {Field} form “formik”
+[2] add Field component instead of <input></input> element
+[3] remove {...formik.getFieldProps("email")} because Field component will add it automatically 
+
+
+* ErrorMessage component instead of {formik.errors.email && formik.touched.email? (<div className='error'>{formik.errors.email}</div>) : null} (in YoutubeForm.js) : 
+[1] import {ErrorMessage} form “formik”
+[2] add ErrorMessage component and will render only when the input element is visited and there is an Error
+[3] add name property (same like name proberty in Field Component which is also the same name attribute in input element in OldYoutubeForm.js )
+
+
+
