@@ -1062,4 +1062,26 @@ we can add {...formik.getFieldProps("name")} (argument is the value of name attr
 [3] add name property (same like name proberty in Field Component which is also the same name attribute in input element in OldYoutubeForm.js )
 
 
+* Field component render as input element but if you want Field component to render as text area you should add (as=‘textarea’ or component =‘textarea) prop to it 
+
+* Render Props :
+    In YoutubeForm.js you can easily add field component and will render as input element but we have another option 
+    to add function as a children to this Field component and this function returns input element ( but you have to link to to formik by add {...field} or {...form.getFieldProps("address")})
+    This function accepts props and this props object has (field , form , meta ) properties : 
+        [1] field prop : values of this prop is object of ( name , onBlur , onChange and value ) to help you to manage state 
+        [2] form prop : values of this prop is the same formik object that return from useFormik hook 
+        [3] gives you information if field visited or not , error exists or not and value ( used to render error messages ) 
+
+* ErrorMessage render text not html element to force ErrorMessage to render html element instead of just rendering a text : 
+[1] add  component=‘div’ prop 
+Or 
+[2] add component={TextError} * TextError is a component ( TextError.js ) 
+Or 
+[3] Render props : Children of ErrorMessage will be a function and parameter of this function is the error message text : 
+<ErrorMessage name='email'>{error => <div className='error'>{error}</div>}</ErrorMessage>
+
+* Nested Object: 
+    steps :
+        [1] add nested object to initialValue 
+        [2] in Field Component add name='social.facebook' instead of name='facebook'
 
