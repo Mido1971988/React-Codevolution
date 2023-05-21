@@ -1085,3 +1085,29 @@ Or
         [1] add nested object to initialValue 
         [2] in Field Component add name='social.facebook' instead of name='facebook'
 
+* Arrays (): 
+    steps :
+        [1] add the array to initialValue (phoneNumbers: ['', '']) so will be only 2 fields if you want to add or remove field dynamically use FieldArray component
+        [2] in Field Components add name="phoneNumbers[0]" and name="phoneNumbers[1]"
+
+* FieldArray (will give you dynamic array - you can add or remove to phNumber array ): 
+    steps : 
+        [1] import FieldArray from 'formik'
+        [2] add the array to initialValue (phNumbers: [""])
+        [3] in FieldArray add name="phNumber"
+        [4] use Render Props pattern ( children is a function and inside this function will accept fieldArrayProps as parameter and 
+            destructure form , remove , push from fieldArrayProps then will destructure values from form then will destructure phNumbers array from values ) 
+        [5] map on phNumbers array to render Field Component and you can add more element to phNumbers array using push method (that will render more Field component) 
+            and you can remove element from phNumbers array (that will remove Field Component)
+
+* Field Component vs FastField (address vs address2 fields in YoutubeForm.js): 
+    * Any changes to form ( like typing inside Field input component will render all Filed Components in the form to re-render ) 
+    FastField Component will solve this problem will re-render FastField component only when you type in it not when you type in any other Field
+
+
+When Validation runs in formik : 
+    [1] change event ( when you type inside field input component)  you can stop validation on change event by adding validateOnChange={false} as a prop to Formik 
+
+    [2] blur event ( when you click inside field input component and then click outside ) you can stop validation on blur event by adding validateOnBlur={false} as a prop to Formik 
+
+    [3] submit the form (if the validation not ok on submit handler will not executed ) 
