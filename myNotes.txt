@@ -1073,12 +1073,12 @@ we can add {...formik.getFieldProps("name")} (argument is the value of name attr
         [3] gives you information if field visited or not , error exists or not and value ( used to render error messages ) 
 
 * ErrorMessage render text not html element to force ErrorMessage to render html element instead of just rendering a text : 
-[1] add  component=‘div’ prop 
-Or 
-[2] add component={TextError} * TextError is a component ( TextError.js ) 
-Or 
-[3] Render props : Children of ErrorMessage will be a function and parameter of this function is the error message text : 
-<ErrorMessage name='email'>{error => <div className='error'>{error}</div>}</ErrorMessage>
+    [1] add  component=‘div’ prop 
+    Or 
+    [2] add component={TextError} * TextError is a component ( TextError.js ) 
+    Or 
+    [3] Render props : Children of ErrorMessage will be a function and parameter of this function is the error message text : 
+    <ErrorMessage name='email'>{error => <div className='error'>{error}</div>}</ErrorMessage>
 
 * Nested Object: 
     steps :
@@ -1105,9 +1105,33 @@ Or
     FastField Component will solve this problem will re-render FastField component only when you type in it not when you type in any other Field
 
 
-When Validation runs in formik : 
+* When Validation runs in formik : 
     [1] change event ( when you type inside field input component)  you can stop validation on change event by adding validateOnChange={false} as a prop to Formik 
 
     [2] blur event ( when you click inside field input component and then click outside ) you can stop validation on blur event by adding validateOnBlur={false} as a prop to Formik 
 
     [3] submit the form (if the validation not ok on submit handler will not executed ) 
+
+* Field level Validation (for specific Field) : 
+    - before in OldYoutubeForm.js we used two ways for validation [1] validate [2] validateSchema Yup liberary
+    and both of validations ways are top level whichs means can validate the selected Field from validate function or validateSchema object
+    - steps for Field level Validation : 
+        [1] define validate function (like validate function in top level validation ... the function (validateComments) accept value of comments Field as parameter )
+        [2] add validate property to comments Field and assign validateComments function to this prop 
+
+* Manually triger validation : 
+    [1] you needs to use render props pattern form entire From : children of Formik Component is a function whichs accept 
+    formik object as parameter ( with formik object we can control manual triger of validation) values of this parameter is the same formik object that return from useFormik hook and also same value of form object in render props in address field
+    [2] add onClick event and the function is formik.validateField() ... empty paramter means will validate all field or you can write which field you want to validate 
+        (but also will not give you the Error because we have 2 conditions to give you error 1st condition is didn't write anything in Field and 2nd condition is touching the Field (click inside and then click outside))
+    [3] add onClick event and the function is formik.setTouched() ... here you should write which fields you want to set as touched fields empty parameter not allowed
+        (now will give you the Error)
+
+* How to Stop Submit : [1] when form is invalid [2] during submitting process
+    [1] when form is invalid :
+        (a) formik.isValid : readonly prop true if error object is empty 
+        (b) add disabled={!formik.isValid} to submit button so the button will be disabled when form is invalid
+        - note : if you want to disable the submit button once page mount you can add validateOnMount prop to Formik Field
+        - formik.dirty : boolean value prop true if you change a value of any field (not blur should type inisde the field and change the value)
+
+
