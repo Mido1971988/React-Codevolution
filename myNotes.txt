@@ -1134,4 +1134,15 @@ we can add {...formik.getFieldProps("name")} (argument is the value of name attr
         - note : if you want to disable the submit button once page mount you can add validateOnMount prop to Formik Field
         - formik.dirty : boolean value prop true if you change a value of any field (not blur should type inisde the field and change the value)
 
+    [2] during submitting process (means when you press on submit we want to disable submit button till submition process to server finish then we can submit again to prevent double submittion at the same time)
+        (a) formik.isSubmitting : boolean value true if submission is in process
+        (b) disabled={formik.isSubmitting} to disable the button during submission process
+        - note formik does not know when the server respond so you have to return formik.isSubmitting back to false by (submitProps.setSubmitting(false)) (submitProps is a 2nd argument in onSubmit Method)
 
+
+* Load saved Data as initial values of the From : 
+    [1] import {useState} from 'react' 
+    [2] destructure const [formValues, setFormValues] = useState(null) then initialValues={formValues || initialValues}
+    [3] create savedData object (that will replace initial values of the Form)
+    [4] add enableReinitialize prop to Formik Component to enables the form to change initial values
+    [5] add button load data and onClick event and inside this event setFormValues(savedValues) (to simulate API Call)
