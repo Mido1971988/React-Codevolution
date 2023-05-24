@@ -37,6 +37,7 @@ const savedValues = {
 const onSubmit = (values, submitProps) => {
     console.log(values)
     submitProps.setSubmitting(false)
+    submitProps.resetForm()
 }
 
 
@@ -205,6 +206,7 @@ function YoutubeForm() {
                             Visit all
                         </button>
                         <button type='button' onClick={() => setFormValues(savedValues)}>Load Data</button>
+                        <button type='reset'>Reset</button>
                         <button type='submit' disabled={(!formik.isValid || formik.isSubmitting)}>Submit</button>
                     </Form>
                 )

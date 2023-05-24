@@ -1146,3 +1146,7 @@ we can add {...formik.getFieldProps("name")} (argument is the value of name attr
     [3] create savedData object (that will replace initial values of the Form)
     [4] add enableReinitialize prop to Formik Component to enables the form to change initial values
     [5] add button load data and onClick event and inside this event setFormValues(savedValues) (to simulate API Call)
+
+* Reset Data in the Form : 
+    [1] add reset button to the form
+    [2] reset the form after submiting by (submitProps.resetForm() in onSubmit method)
