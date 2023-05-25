@@ -1150,3 +1150,9 @@ we can add {...formik.getFieldProps("name")} (argument is the value of name attr
 * Reset Data in the Form : 
     [1] add reset button to the form
     [2] reset the form after submiting by (submitProps.resetForm() in onSubmit method)
+
+* formik videos end at video 30 ... from video 31 we are building an Example and use what we learned
+
+* ChakraInput library in(chakraInput.js): 
+    -Form control component has isInvalid prop if false will not render FormErrorMessage component 
+    -Benefits of using ChakraInput Library is no need to write css or create TextError.js and pass it as component prop inside ErrorMessage 
