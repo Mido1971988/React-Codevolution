@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState} from 'react'
 import { Formik, Form } from 'formik'
 import * as Yup from 'yup'
 import FormikControl from './FormikControl'
@@ -28,6 +28,7 @@ function FormikContainer () {
         checkboxOption: [],
         birthDate: null
     }
+
     const validationSchema = Yup.object({
         email: Yup.string().required('Required'),
         description: Yup.string().required('Required'),
@@ -38,16 +39,21 @@ function FormikContainer () {
         .required('Required')
         .nullable()
     })
+
+    const [formValues, setFormValues] = useState(null)
+    let savedValues = null
     const onSubmit = values => {
         console.log('Form data', values)
-        console.log('Saved data', JSON.parse(JSON.stringify(values)))
+        savedValues = values
+        // console.log('Saved data', JSON.parse(JSON.stringify(values)))
     }
 
     return (
         <Formik
-            initialValues={initialValues}
+            initialValues={formValues || initialValues}
             validationSchema={validationSchema}
             onSubmit={onSubmit}
+            enableReinitialize
         >
         {formik => (
             <Form>
@@ -85,6 +91,8 @@ function FormikContainer () {
                 label='Pick a date'
                 name='birthDate'
             />
+            <button type='reset'>Reset</button>
+            <button type='button' onClick={() => setFormValues(savedValues)}>Load Data</button>
             <button type='submit'>Submit</button>
             </Form>
         )}

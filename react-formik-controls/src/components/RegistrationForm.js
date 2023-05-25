@@ -27,7 +27,7 @@ function RegistrationForm () {
         modeOfContact: Yup.string().required('Required'),
         phone: Yup.string().when('modeOfContact', {
         is: 'telephonemoc',
-        then: Yup.string().required('Required')
+        then: () => Yup.string().required('Required')
         })
     })
 

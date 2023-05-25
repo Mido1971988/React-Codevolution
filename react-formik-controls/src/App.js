@@ -6,26 +6,26 @@ import RegistrationForm from './components/RegistrationForm';
 import EnrollmentForm from './components/EnrollmentForm';
 import { ThemeProvider, theme } from '@chakra-ui/react'
 
-// function App() {
-//   return (
-//     <div className="App">
-//       <FormikContainer />
-//       <LoginForm/>
-//       <RegistrationForm />
-//       <EnrollmentForm />
-//     </div>
-//   );
-// }
+function App() {
+  return (
+    <div className="App">
+      <FormikContainer />
+      {/* <LoginForm/> */}
+      {/* <RegistrationForm /> */}
+      {/* <EnrollmentForm /> */}
+    </div>
+  );
+}
 
 // Chakra 
-function App () {
-  return (
-    <ThemeProvider theme={theme}>
-      <div className='App'>
-        <LoginForm />
-      </div>
-    </ThemeProvider>
-  )
-}
+// function App () {
+//   return (
+//     <ThemeProvider theme={theme}>
+//       <div className='App'>
+//         <LoginForm />
+//       </div>
+//     </ThemeProvider>
+//   )
+// }
 
 export default App;
