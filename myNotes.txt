@@ -1156,3 +1156,42 @@ we can add {...formik.getFieldProps("name")} (argument is the value of name attr
 * ChakraInput library in(chakraInput.js): 
     -Form control component has isInvalid prop if false will not render FormErrorMessage component 
     -Benefits of using ChakraInput Library is no need to write css or create TextError.js and pass it as component prop inside ErrorMessage 
+
+-----------------------------
+Benefits of React styled component : 
+* Automatic critical CSS ( inject css styling only to the components will render 
+* No class name ( if you have two css files maybe will one will override the other if you use same class name like styles.css and app.css ) 
+* Easier deletion on css style ( because each css style is linked to specific component so when you delete a component will delete automatically it’s css style ) 
+* Dynamic CSS styling (means now css style can be different according to props of component )
+* Painless maintenance 
+* Automatic vendor prefixing ( no need to write different vendor prefixes to be compatible with different browsers this library will handle this ) 
+
+npm install styled-components
+
+Dynamic CSS : when you use a function inside Es6 template string this function will accept component prop as an argument ( like in Button.styles.js ) 
+
+Extending styles : you can reuse styles of one component and add extra styles to it ( like in Button.styles.js …. Const FancyButton = styled(styledButton) this means FancyButton will take styles of styledButton and then you can add extra style like linear-gradient)
+
+Pseudo classes : 
+Add (&:hover ) ( like in Button.styles.js ) 
+
+Passed props to be element attributes :
+When you add type=‘submit’ to StyledButton will be passed automatically to button element  ( like in Button.styles.js ) 
+
+Adding attributes: you can add attribute to component by using attrs constructor and this constructor accepts an object as argument or accept a function which is returns an object and this function accepts props as an argument ( like in Button.styles.js ) 
+
+Animation : 
+Import { keyframes } from ‘styled-component’
+and you can assign this keyframes to variable and then use this variable to animation inside component ( like AnimatedLogo component in Button.styles.js )
+
+Theme : 
+[1] Import { ThemeProvider } from ‘styled-component’
+[2] wrap all jsx in App.js with ThemeProvider
+[3] add theme prop 
+Now you can access theme prop from any component under ThemeProvider
+
+createGlobalStyle : There are times where you want to style your React application globally and not each component individually. 
+For this, we can make use of the createGlobalStyle API and the component created by createGlobalStyle ( GlobalStyle ) is under ThemeProvider so has access also to theme 
+
+
+
