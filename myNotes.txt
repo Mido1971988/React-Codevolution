@@ -1195,3 +1195,36 @@ For this, we can make use of the createGlobalStyle API and the component created
 
 
 
+---------------------
+Material UI : is an open-source React component library that implements Google's Material Design
+
+To install react app with typescript: 
+npx create-react-app react-mui-demo -- template typescript 
+
+To install mui library: 
+npm install @mui/material @emotion/react @emotion/styled
+
+Typography: 
+
+[1] Import { Typography } from ‘mui/matrial’
+
+[2] add variant prop to Typography component to render different HTML Elements with specific css styles you can check want you can type to variant pro from this link (section typography) 
+https://mui.com/material-ui/customization/default-theme/
+
+- note : if you want to take default css styles from material ui default theme but you want to render different html element you can add variant prop for styles and component prop for html element ( like in h4 element in MuiTypography.tsx) 
+- gutterbottom prop to add bottom margin to the element and depends on variant if variant is h1 will have bigger margin than h6 
+
+Button : 
+- variant text : (no need for user attention ) used for exp. in footer button and see more buttons
+- Variant contained: (need for user attention ) used for exp. Login or register buttons 
+- Variant outlined: ( in between contained and text we need attention but not too much ) used for exp. Cancel or go back buttons 
+- Stack : is a wrapper component than you can wrap buttons and you can add props like spacing and direction 
+- If you add href prop to button will render <a> 
+- You can add color prop check this link ( section palette) https://mui.com/material-ui/customization/default-theme/
+- You can add size prop to button component 
+- You can add display prop ( default is flex ) 
+- To install icon package ( npm install @mui/icons-material ) 
+- You can search for the icons from this link ( https://mui.com/material-ui/material-icons/ ) and then copy the import line and use it by adding startIcon ( before the text ) or EndIcon (after the text ) prop ( startIcon={<SendIcon/>} )
+- If you want to add icon only without text use IconButton component as a wrapper to <SendIcon/> and add aria-label=‘send’ prop ( for accessibility reasons ) to  IconButton component —— color and size props can be used also in IconButton component 
+- disableElevation prop to disable shadow on the button
+- disableRipple prop to disable ripple effect when you click on the button
