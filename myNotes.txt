@@ -1196,15 +1196,15 @@ For this, we can make use of the createGlobalStyle API and the component created
 
 
 ---------------------
-Material UI : is an open-source React component library that implements Google's Material Design
+* Material UI : is an open-source React component library that implements Google's Material Design
 
 To install react app with typescript: 
-npx create-react-app react-mui-demo -- template typescript 
+npx create-react-app react-mui-demo --template typescript 
 
 To install mui library: 
 npm install @mui/material @emotion/react @emotion/styled
 
-Typography: 
+* Typography: 
 
 [1] Import { Typography } from ‘mui/matrial’
 
@@ -1214,7 +1214,7 @@ https://mui.com/material-ui/customization/default-theme/
 - note : if you want to take default css styles from material ui default theme but you want to render different html element you can add variant prop for styles and component prop for html element ( like in h4 element in MuiTypography.tsx) 
 - gutterbottom prop to add bottom margin to the element and depends on variant if variant is h1 will have bigger margin than h6 
 
-Button : 
+* Button : 
 - variant text : (no need for user attention ) used for exp. in footer button and see more buttons
 - Variant contained: (need for user attention ) used for exp. Login or register buttons 
 - Variant outlined: ( in between contained and text we need attention but not too much ) used for exp. Cancel or go back buttons 
@@ -1228,3 +1228,24 @@ Button :
 - If you want to add icon only without text use IconButton component as a wrapper to <SendIcon/> and add aria-label=‘send’ prop ( for accessibility reasons ) to  IconButton component —— color and size props can be used also in IconButton component 
 - disableElevation prop to disable shadow on the button
 - disableRipple prop to disable ripple effect when you click on the button
+
+* ButtonGroup component: 
+- if you want to create group of buttons beside each others better to wrap buttons components with ButtonGroup component 
+- add variant prop ( or any prop ) to ButtonGroup component not to buttons component 
+- Orientation prop vertical to render buttons vertically 
+- Arial-label prop for accessibility 
+
+* ToggleButtonGroup : 
+- onChange event : 2nd argument of onChange event is values Depending on how your togglebuttons are set up
+- exclusive prop : if you want toggle only one button not selecting multiple buttons
+
+* TextField ( in MuiTextField.tsx) :  
+- helper prop : text below text field
+- Required prop : will add * to text field 
+- InputProps prop : you can make the text field read only by adding InputProps=‘{ readonly : true }’ 
+- InputProps prop : you can add InputAdornment component inside field text by add InputProps=‘{ startAdornment : <InputAdornment position=‘start’ >$<\InputAdornment>  }’  or endAdornment ( for exp. Will add $ before amount of money in text field ) 
+- You can add another props like : variant , type , label , color , size , disabled , error (for validation  )
+
+* Select ( in MuiSelect.tsx ) : if you want to create select from Mui first import Box and MenueItem components and wrap MenueItem and TextField components with Box Component 
+- width prop in box component : to add width to select element but you have to add fullWidth prop to TextField component 
+- SelectProps prop : if you want to select multiple options add SelectProps prop to TextField Component like SelectProps={{multiple: true }} 
