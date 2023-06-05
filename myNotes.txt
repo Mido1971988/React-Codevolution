@@ -1249,3 +1249,35 @@ https://mui.com/material-ui/customization/default-theme/
 * Select ( in MuiSelect.tsx ) : if you want to create select from Mui first import Box and MenueItem components and wrap MenueItem and TextField components with Box Component 
 - width prop in box component : to add width to select element but you have to add fullWidth prop to TextField component 
 - SelectProps prop : if you want to select multiple options add SelectProps prop to TextField Component like SelectProps={{multiple: true }} 
+
+* Radio button ( in MuiRadioButton.tsx) : 
+- FormControl component: is the wrapper for RadioGroup and FormLabel components 
+- RadioGroup component: is a wrapper for FormControlLabel Components and you link it with FormLabel component by using id prop in FormLabel and aria-labelledby in RadioGroup. 
+- FormControlLabel Component: accepts control prop ( control={<Radio/>} ) , value prop and label prop 
+- FormHelperText : to display error message
+
+* CheckBox (in MuiCheckbox.tsx) : 
+- FormControlLabel Component: accepts control prop ( control={<CheckBox/>} )  and label prop 
+- CheckBox component : accepts checked prop ,  icon and checked icon props 
+- If you want group use same technique of Radio button ( FormControl is a wrapper for FormLabel and FormGroup components then FormGroup is a wrapper for FormControlLabel component then add CheckBox component as a control prop )
+
+* Switch ( in MuiSwitch.tsx) : 
+- FormControlLabel Component: accepts control prop ( control={<Switch/>} )  and label prop 
+- If you want group use same technique of Radio button or CheckBox
+
+* Rating component (in MuiRating.tsx) : 
+- onChange event : 2nd argument will be a number if you press on 2nd star so the value of 2nd arguments will be 2 if you press at the same star again will reset the rating and the value of 2nd argument will be null
+- Precision prop : if you write precision={0.5} now you can choose half star 
+- icon and emptyIcon props : if you want to change the star to different icon shape
+
+* AutoComplete component ( in MuiAutoComplete.tsx) : 
+- options prop : is an array 
+- renderInput prop : is a function that return extField Component and accepts parameters then you can spread those parameters as props to TextField Component 
+- onChange event : 2nd argument will be a the chosen value ( newValue ) and if you press on X to clear the chosen value the 2nd argument will be null
+- freeSolo prop : to allow to type any string not only the options values 
+
+* Box Component ( in MuiLayout.tsx) : 
+- The Box component serves as a wrapper component for most of the CSS utility needs
+- component prop : if you want to render box to other html element like span
+- sx prop : if you want to add css styles 
+- You can add css directly to Box component no need for sx prop ( but those css styles must be supported by Mui ) ( there is shortcuts for some css styles like bgcolor = background color 
