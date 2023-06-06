@@ -1281,3 +1281,38 @@ https://mui.com/material-ui/customization/default-theme/
 - component prop : if you want to render box to other html element like span
 - sx prop : if you want to add css styles 
 - You can add css directly to Box component no need for sx prop ( but those css styles must be supported by Mui ) ( there is shortcuts for some css styles like bgcolor = background color 
+
+* Stack component ( in MuiLayout.tsx) :
+- is a wrapper component
+- sx prop : to add css styles 
+- Direction prop : by default of stack component display is flex and direction is column and you can change the direction by direction prop 
+- Spacing prop : to add space between components inside stack ( is a number and this number is multiplied by 8 px … spacing={2} means 16px )
+- divider prop : accepts Divider components to add Divider component between flex items and Divider component accepts orientation and flexItem props 
+
+* Grid component ( in MuiLayout.tsx) :
+- Stack used for one dimensional Layout but Grid used for two dimensional Layout
+- You can make Grid component as Grid parent by adding container prob and you can make Grid Component as Grid item by adding item prop
+- Grid under the hood uses Flexbox module 
+- Breakpoints: xs for mobile devices, sm for tablets , md for desktops lg and xl for larger monitors 
+- Grid contains 12 column and you can write what the numbers of columns will you used for each item ( like xs={6} means this item will use 6 columns which is 50% of width of grid ) ( if you didn’t write any numbers to breakpoints will divide the width equally between grid items … if you write auto will give the grid item width only for the text inside the grid item ) 
+
+* Paper component ( in MuiLayout.tsx) :
+- you can change background color by adding it to body in app.css 
+- You can change the shadow of paper or card by using elevation prop in Paper component
+
+* Card component ( in MuiCard.tsx) : 
+- Card component: a wrapper for CardMedia , CardContent and CardActions components 
+- CardMedia component accepts component, height, image ( source of the image ) and alt ( for accessibility) props 
+- CardContent is a wrapper for typography components 
+- CardActions is a wrapper for button components 
+
+* Accordion Component ( in MuiAccordion.tsx ) :
+- Accordion component: is a wrapper component for AccordionDetails and AccordionSummary components and accepts expand prop and onChange event ( onchange event accepts two parameters event and isExpanded ) 
+- AccordionSummary component accepts id , aria-controls( for accessibility) and expandIcon ( accepts ExpandMoreIcon component ) props 
+- AccordionDetails component wrap typography component 
+
+* ImageList Component ( in MuiAImageList.tsx ) :
+- ImageList component: is a wrapper component for ImageListItem and ImageListItemBar components and accepts sx ( for css styles) , cols and rowHeight props or variant (woven or masonry) and gap (if you use gap remove rowHeight)
+- ImageListItem component wrap imag html element
+- note : if you want to use varaint masonry wrap ImageList with Box component and add sx prop to the Box component noy yo ImageList component
+
