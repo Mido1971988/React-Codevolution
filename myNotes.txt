@@ -1316,3 +1316,37 @@ https://mui.com/material-ui/customization/default-theme/
 - ImageListItem component wrap imag html element
 - note : if you want to use varaint masonry wrap ImageList with Box component and add sx prop to the Box component noy yo ImageList component
 
+* Navbar ( in MuiNavbar.tsx) : 
+- AppBar component is a wrapper component for toolbar component and toolbar component is a wrapper component for IconButton component and IconButton component is a wrapper component for Icon component ( like CatchingPokemonIcon ) and typography component and Stack component 
+- NavLinks  : add stack component then inside it Buttons 
+- NavMenu : Menu Component is a wrapper component for MenueItem components 
+    to link navMenu to specific button you should follow those steps : 
+        [1] add id prop to Menu Component and Button Component
+        [2] add MenuListProps prop to Menu Component and inside this prop add ('aria-labelledby': id of the Button )
+        [3] add anchorEl prop to Menu Component and assign to it anchorEl variable (the Button Element) ( use useState Hook to store button element to anchorEl variable  when you click on it)
+            - note : adding anchorEl prop(inside it button html element) to Menu to position the menu to this html element
+        [4] add anchorOrigin and transformOrigin props to Menu Component to customize the position of menu
+        [5] add open prop to Menu Component if true menu will show up
+        [6] add onClick event to Button Component to save the Button HTML element to anchorEl variable so open will be true so menu will show up
+        [7] add onClose prop (callback fires when the component requests to close)
+        [8] add onClick prop (inside it handleClose function) to MenuItem Components 
+        [9] add aria-controls={open ? id of Menu Component : undefined} and aria-haspopup and aria-expanded to Button Component for accessibility purposes
+
+* Link ( in MuiLink.tsx) : 
+- Stack component is a wrapper for Link Components 
+- Link component’s props : href and underline ( underline=“hover” ) means will underline will appears only when you hover 
+- you can add variant prop to Link component and will take styles and also you can wrap Link component with Typography component with variant prop and Link will inherit variant from Typography Component 
+
+* BreadCrumbs (in MuiBreadcrumbs.tsx) : 
+- Breadcrumbs component is a wrapper component for Link components to separate the Link by / 
+- You can change the default separator / by adding separator prop 
+- You can use maxItems prop for example if you add maxItems={2} and you have 4 Links will show only 1st and last Link and in-between will add …
+- You can change number of links shown before and after … by using itemsAfterCollapse or itemsBeforeCollapse for example if you add itemsAfterCollapse={2} will show after … last 2 Links not only Last link 
+
+* Drawer (in MuiDrawer.tsx) : 
+- Drawer component is a wrapper component for Box Component and Box Component is a wrapper for Typography Component
+- you can chose the position of Drawer by using anchor prop (anchor="left")
+- onClose prop (callback fires when the component requests to close)
+- open prop if true (isDrawerOpen variable by using useState Hook) menu will show up
+- we use IconButton Component (contains MenuIcon Component) and add onClick event (handle isDrawerOpen variable value true or false ) to it
+- role prop for accessibility and screen readers
