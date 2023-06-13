@@ -1364,3 +1364,30 @@ https://mui.com/material-ui/customization/default-theme/
 - Stack Component is a wrapper component for Avatar Components 
 - Avatar Components props : ( src and alt) , variant ( rounded or square) , sx ( css styling) 
 - AvatarGroup component is a wrapper component for Avatar Component and it's prop like : max (max={2} will show only 2 Avatars )
+
+
+* Badge ( in MuiBadge.tsx ) : 
+- Stack component is a wrapper for Badge components 
+- Badge component is a wrapper for Icons ( MailIcon ) 
+- badgeContent prop: badgeContent={5} (will show number 5 as notification ) 
+    - if you write 0 will not show 0 as notification number if you want to show it add showZero prop 
+    - If you write 100 will show 99+ because default max numb is 99 and you can change that by using max prop like max={999} 
+- Variant prop : if you write variant=“dot” instead of badgeContent prop will add dot only as notification without number 
+- Invisible prop : invisible={true} to hide badge 
+
+* list ( in MuiList.tsx) :
+- you can use all those Component to create the list : Box,List,ListItem,ListItemText,ListItemButton,ListItemIcon,Divider,ListItemAvatar,Avatar 
+- Box > List > ListItem > ListItemText 
+- Box > List > ListItemButton > ListItemIcon  > Icon
+- Box > List > ListItemAvatar > Avatar 
+
+* Chip ( in MuiChip.tsx) : 
+- Stack component is a wrapper for Chip Components.
+- Chip props : label , color , onClick , onDelete , variant , Avatar , icon.
+- icon prop can add icon to chip , avatar prop can add Avatar Component to the Chip.
+- onDelete prop will add x icon to Chip as delete button
+
+* Tooltip ( in MuiTooltip.tsx) : 
+- Tooltip is a wrapper for IconButton Component (contains Icon)
+- Tooltip props : title , placment (to change position of title when hover) , arrow (to add arrow to title) , enterDelay & leaveDelay (delay for title text when hover)
+
