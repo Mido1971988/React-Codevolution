@@ -1391,3 +1391,31 @@ https://mui.com/material-ui/customization/default-theme/
 - Tooltip is a wrapper for IconButton Component (contains Icon)
 - Tooltip props : title , placment (to change position of title when hover) , arrow (to add arrow to title) , enterDelay & leaveDelay (delay for title text when hover)
 
+* Table ( in MuiTable.tsx ) : 
+- stickyHeader prop ( in Table Component) will make Header sticky when you scroll 
+- align prop ( in TableCell component) : align=“center” 
+- 
+
+
+* Alert ( in MuiAlert.tsx) : 
+- severity prop : error (red) , warning (yellow), info (blue) , success (green) 
+- Variant prop : outlined, filled 
+- OnClose prop will add automatically x icon to Alert Component 
+- You can change the icon by using Icon prop and add to it any Icon you want 
+- You can add AlertTitle Component inside Alert Component 
+-  action prop can be used to provide an alternative action, for example using a Button or IconButton.
+
+* Snackbar ( MuiSnackbar.tsx) : 
+- if you want to use default Snackbar use Snackbar component then add props :
+    open (visible or not ), autoHideDuration , onClose , message , anchorOrigin (position)
+- if you want to use custome made Snackbar component as a wrapper component and add to it ( open , onClose , autoHideDuration)
+then add inside Snackbar component your custome made Component ( SnackbarAlert ) and add to it (onClose , severity) props
+- onClose : you should add if condition ( if reason === "clickaway" return ) to handleClose function to stop clicking away from closing Snackbar
+
+* Dialog ( in MuiDialog.tsx) :
+- Dialog > DialogTitle > DialogContent ( > DialogContentText ) & DialogActions ( > Button )
+
+* Progress ( in MuiProgress.tsx) :
+- CircularProgress : to give you loading circle ... props ( color , variant='determinate' ,  value)
+- The variant prop : Use indeterminate when there is no progress value.
+- LinearProgress : to give you loading straight line ... props ( color , variant='determinate' ,  value)
