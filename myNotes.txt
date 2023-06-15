@@ -1419,3 +1419,14 @@ then add inside Snackbar component your custome made Component ( SnackbarAlert )
 - CircularProgress : to give you loading circle ... props ( color , variant='determinate' ,  value)
 - The variant prop : Use indeterminate when there is no progress value.
 - LinearProgress : to give you loading straight line ... props ( color , variant='determinate' ,  value)
+
+* Skeleton ( in MuiSkeleton.tsx) : 
+- Skeleton Props : animation , variant , width , height
+
+* Loading Button ( in MuiLoadingButton.tsx) :
+- 1st EXP. if loading is true will display loading circle (  default ) instead of displaying Text 
+- 2nd EXP. if loading is true will display loadingIndicator ( if you add this prop ) instead of displaying Text
+- 3rd EXP. if loading is true will display loading circle (  default ) instead of SaveIcon
+
+* Date Picker ( in MuiDateTimePicker.tsx) :
+- see the file 
