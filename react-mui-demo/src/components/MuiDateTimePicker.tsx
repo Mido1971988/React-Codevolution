@@ -13,7 +13,14 @@ export const MuiDateTimePicker = () => {
         selectedDateTime
     })
 
-    console.log(selectedDate && selectedDate.toISOString())
+    let x = selectedTime && selectedTime.toISOString()
+    if(x){
+            let y = new Date(x)
+            let z = y.toLocaleTimeString()
+            console.log(z)
+    }
+
+    console.log(selectedTime && selectedTime.toISOString())
 
     return (
         <Stack spacing={4} sx={{ width: '250px' }}>

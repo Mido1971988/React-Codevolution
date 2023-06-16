@@ -34,6 +34,7 @@ import { MuiProgress } from './components/MuiProgress';
 import { MuiLoadingButton } from './components/MuiLoadingButton';
 import { MuiSkeleton } from './components/MuiSkeleton';
 import { MuiDateTimePicker } from './components/MuiDateTimePicker';
+import { MuiDateRangePicker } from './components/MuiDateRangePicker';
 
 function App() {
   return (
@@ -69,7 +70,8 @@ function App() {
         {/* <MuiProgress/> */}
         {/* <MuiSkeleton/> */}
         {/* <MuiLoadingButton/> */}
-        <MuiDateTimePicker/>
+        {/* <MuiDateTimePicker/> */}
+        <MuiDateRangePicker/>
       </div>
     </LocalizationProvider>
   );
