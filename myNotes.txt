@@ -1447,3 +1447,10 @@ then add inside Snackbar component your custome made Component ( SnackbarAlert )
 Masonry maintains a list of content blocks with a consistent width but different height. The contents are ordered by row. 
 If a row is already filled with the specified number of columns, the next item starts another row, and it is added to the shortest column in order to optimize the use of space.
 - Box > Masonry > Paper or Box > Masonry > Accordion > AccordionSummary & AccordionDetails
+
+* Custome theme :
+[1] import createTheme and invoke it and assign it to theme variable 
+[2] wrap entire component tree in App.tsx with ThemeProvider component and add theme variable to Theme prop 
+- note : if you want to add new option in theme will give you an Error you should creat new file ( theme.d.ts) and import ThemeOptions this is a link how to write interface ( https://github.com/mui/material-ui/blob/v5.13.5/packages/mui-material/src/styles/createPalette.d.ts ) 
+
+
