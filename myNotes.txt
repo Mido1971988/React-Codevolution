@@ -1430,3 +1430,20 @@ then add inside Snackbar component your custome made Component ( SnackbarAlert )
 
 * Date Picker ( in MuiDateTimePicker.tsx) :
 - see the file 
+
+* DateRange Picker ( in MuiDateRangePicker.tsx) :
+- see the file 
+
+* Tabs ( in MuiTabs.tsx) :
+- onChange event (on TabList Component) : 2nd argument will be a the value of the chosen Tab ( newValue ) 
+- Box > TabContext > Box (> TabList > Tab) & TabPanel 
+- value prop on TabContext will decide which Tab will be selected and which TabPanel will be shown 
+
+* Time Line ( in MuiTimeline.tsx) : 
+- Timeline > TimelineItem > TimelineSeparator (> TimelineDot & TimelineConnector) & TimelineContent 
+- if you want to  add content on other side also you can add TimelineOppositeContent Component under TimelineItem
+
+* masonry ( in MuiMasonry.tsx) : 
+Masonry maintains a list of content blocks with a consistent width but different height. The contents are ordered by row. 
+If a row is already filled with the specified number of columns, the next item starts another row, and it is added to the shortest column in order to optimize the use of space.
+- Box > Masonry > Paper or Box > Masonry > Accordion > AccordionSummary & AccordionDetails
