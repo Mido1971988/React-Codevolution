@@ -1454,3 +1454,24 @@ If a row is already filled with the specified number of columns, the next item s
 - note : if you want to add new option in theme will give you an Error you should creat new file ( theme.d.ts) and import ThemeOptions this is a link how to write interface ( https://github.com/mui/material-ui/blob/v5.13.5/packages/mui-material/src/styles/createPalette.d.ts ) 
 
 
+---------------------
+Testing 
+
+* Jest vs React testing library : 
+    Jest => JS Testing Framework 
+    RTL => JS utility provides Virtual Dom for testing React components ( the main objective of RTL is how the component behaves when a user interacts with it and the final result is correct not how by details the component works )
+    * note : will use Jest and RTL together they are not alternative to each other 
+
+* Types of tests : 
+[1] unit test : 
+    * Focus on testing an individual building blocks of an application such as function , class or a component 
+    * Each unit test in isolation, independent of other units
+    * dependencies are mocked
+[2] integration test : 
+    * Focus on testing a combination of units and ensuring they work together 
+[3] E2E test ( End to End test ) :
+    * Focus on testing the entire application flow and ensure it works as designed from start to finish 
+
+
+* create react testing :
+    npx create-react-app . --template typescript 
