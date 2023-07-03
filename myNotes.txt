@@ -1475,3 +1475,25 @@ Testing
 
 * create react testing :
     npx create-react-app . --template typescript 
+
+* to run test (npm test) 
+
+* Test(test name , fn , timeout ) 
+    1st argument: test name 
+    2nd argument: function thats contain the expectation to test
+    3rd argument: is optional timeout( for how long should wait before aborting the test the default is 5 secs ) 
+
+* How to create a test RTL ( in app.test.tsx) : 
+    [1] import { render, screen } from '@testing-library/react';
+    [2] create virtual Dom by passing App component as an argument to render method
+    [3] use screen.getByText() query method (Queries are the methods that Testing Library gives you to find elements on the page. ) and pass a string or regular expression as an argument 
+    [4] expect(linkElement).toBeInTheDocument(); 
+    * Note : we did not import text or expect (from Jest) becuase they are available globally when you create React app
+    thats mean now we used RTL and Jest together
+
+* Test Driven Development ( TDD ) ( red to green test ) (in greet2.test.tsx) : 
+    Is a process that you write the test before you write the code
+
+
+
+
