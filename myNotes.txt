@@ -1551,6 +1551,11 @@ Testing
     expect is global method accept an argument which will be checked by matcher method like (toBeInTheDocument())
     expect(textElement).toBeInTheDocument();
 
+    * note : there are a lot of matcher methods like 
+        - toHaveTextContent('2')
+        - toHaveValue(10)
+        - toHaveFocus()
+
 * RTL Queries
     Every test we write generally involves the following basic steps
     1.Render the component 
@@ -1718,3 +1723,119 @@ getByTestld returns the element that has the matching data-testid attribute
         The promise is rejected if no elements are found after a default timeout of 1000ms
 
     * note : if we want to add more time to default time out we can add object with timeout property as 3rd argument to findBy 
+
+Manual Queries
+    Manual queries - you can use the regular query Selector DOM API to find elements
+    const {container} = render(<My Component />)
+    const foo = container.querySelector(data-foo= "bar")
+
+
+* screen.debug : 
+    the debug() method can help us visualize the DOM tree before writing an assertion ( for Exp. to show the DOM before and after setTimeout in Skills.test.tsx) 
+
+
+* logRoles: 
+
+    This helper function can be used to print out a list of all roles of elements within a tree of DOM nodes
+    steps : 
+        [1] import logRoles
+        [2] const view = render(<Skills skills={skills} />);
+        [3] logRoles(view.container) 
+
+* testing playground :
+    Is a chrome extension to suggest you the best query to select an element when writing tests
+
+* user-event
+    A companion library for Testing Library that simulates user interactions by dispatching the events that would happen if the interaction took place in a browser
+    It is the recommended way to test user interactions with RTL
+
+* fireEvent vs user-event
+    fireEvent is a method from RTL which is used to dispatch DOM events (not library)
+    user-event simulates full interactions, which may fire multiple events and do additional checks along the way
+    For example, we can dispatch the change event on an input field using fire vent
+    When a user types into a text box, the element has to be focused, and then keyboard and input events are fired and the selection and value on the element 
+    are manipulated as they type user-event allows you to describe a user interaction instead of a concrete event. It adds visibility and intractability checks along the way and manipulates the DOM just like a user interaction in the browser would. 
+    It factors in that the browser e.g. wouldn't let a user click a hidden element or type in a disabled text box
+
+* use event library is installed by default with React but version 13 to update it to version 14 ( npm install --save-dev @testing-library/user-event )
+
+* Pointer Interactions : 
+
+    [1] Convenience APIs :
+        click()
+        dbIClick()
+        tripleClick()
+        hover()
+        unhover()
+        type() // user.type(amountInput, '10') 1st argument is input element , 2nd argument is the amount will be added to this input element
+
+    [2] Pointer APIs : 
+        pointer({keys: '[MouseLeft]}) //  mouse left click
+        pointer ({keys: '[Mouse Left][Mouseright]}) mouse left click followed by mouse right click
+        pointer('[MouseLeft][Mouseright]') // like previous
+        pointer('[MouseLeft>]') // hold mouse left click
+        pointer('[/MouseLeft]) // realse the clicked mouse left 
+
+* Steps to use pointer interactions ( in counter.test.tsx ): 
+    [1] import user from '@testing-library/user-event'
+    [2] inside test add ( user.setup() )
+    [3] await user.click(incrementButton) // await because it's asynchronous
+
+
+
+* Keyboard interactions : 
+
+[A] Utility API
+    [1] clear()
+
+    test('clear', async () => {
+        render (<textarea defaultValue="Hello,World!" />)
+        await userEvent.clear(screen. getByRole( 'textbox' )) 
+        expect (screen. getByRole('textbox')). toHaveValue('')
+    })
+
+    [2] selectOptions()
+
+        test( 'selectOptions', async () =>{
+        render(<select multiple>
+            <option value="1">A</option> 
+            <option value="2">B</option> 
+            <option value="3">C</option>
+        </select>)
+        await userEvent.selectOptions(screen.getByRole( 'listbox'), ('1', 'C')) 
+        expect (screen. getByRole( 'option' {name: 'A'}) .selected).toBe(true) 
+        expect ( screen. getByRole( 'option {name: 'B'}).selected).toBe(false) 
+        expect ( screen. getByRole( 'option {name:'C' }).selected).toBe(true)
+        }）
+
+    [3] deselectOptions()
+
+        test 'deselectOptions', async () => {
+        render(<select multiple>
+            <option value="1">A</option> 
+            <option value="2" selected>
+        </select>)
+        }）
+
+        [4] upload()
+
+        test('upload file', async () => {
+            render ( <div>
+                <label htmlfor="file-uploader">Upload file:</label>
+                <input id="file-uploader" type="file" />
+            </div>)
+        const file = new File(['hello'], 'hello.png', {type: 'image/png'})
+        const input = screen.getByLabelText(/upload file/i)
+        await userEvent . upload( input, file) expect (input. files [0]). toBe( file) expect (input.files.item(0)).toBe(file) expect (input .files) . toHaveLength(1)
+        })
+
+
+[B] Clipboard APIs: 
+    сору()
+    cut()
+    paste()
+
+[C] Kevboard API: 
+    keyboard('foo') // translates to: f, 0, o
+    keyboard({Shift>}A{/Shifty}) // translates to: Shift(down), A, Shift(up) means holds
+
