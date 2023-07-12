@@ -1839,3 +1839,8 @@ Manual Queries
     keyboard('foo') // translates to: f, 0, o
     keyboard({Shift>}A{/Shifty}) // translates to: Shift(down), A, Shift(up) means holds
 
+* Provider and testing ( in AppProvider.tsx , MuiMode.tsx , MuiMode.test.tsx )
+    [1] wrap MuiMode component with AppProvider (inside it we created the theme and pass it as prop ) 
+    [2] at MuiMode component use useTheme() to access theme created inside AppProvider from 
+
+    
