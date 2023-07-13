@@ -1844,3 +1844,21 @@ Manual Queries
     [2] at MuiMode component use useTheme() to access theme created inside AppProvider from 
 
     
+* Custom render (in MuiMode.test.tsx ): 
+    If you test component MuiMode will test it without wrapper component 
+    so you have to add 2nd argument to render method and this 2nd argument is an object with property wrapper ( like in Mui-Mode.test.tsx) 
+
+    But with custom render you can add default wrapper component to all tested components
+    By adding ( test-utils.tsx ) ( we copied it from docs ) and then (import { render, screen } from '../../test-utils') instead of (import { render, screen } from '@testing-library/react')
+
+* custom React hooks (in useCounter.test.tsx): 
+    Hooks doesn’t return jsx and only called inside body of a function component so we cannot use render method when test a hook we should use renderHook method instead 
+    And this renderHook method wrap the hook with function component and invoke the hook to return an object then we can destructer a property called result 
+    Then result.current is the return value from the custom hook 
+
+    If you want to pass a prop to custom hook ( useCounter ) add an object as a 2nd argument to renderHook method 
+
+* act() (in useCounter.test.tsx):
+    When testing , code that cause state update should be wrapped into act() 
+    like result.current.increment() will cause state update so you should wrap it with act()
+
