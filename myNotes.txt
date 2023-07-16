@@ -1862,3 +1862,27 @@ Manual Queries
     When testing , code that cause state update should be wrapped into act() 
     like result.current.increment() will cause state update so you should wrap it with act()
 
+* Mocking function (in CounterTwo.tsx , CounterTwo.test.tsx , CounterTwo.types.ts): 
+    - read this to understand meaning of Mocking ( https://grantwinney.com/what-is-mocking-a-dependency/ )
+    - steps of mocking function : 
+        [1] use jest library to create mocked function ( const incrementHandler = jest.fn() )
+        [2] click on button by using user ( search here for Steps to use pointer interactions  )
+        [3] use matcher method to know if the function called when you click ( expect(incrementHandler).toHaveBeenCalledTimes(1) )
+
+* Mocking HTTP Request : 
+    - reason of Mocking HTTP Request is http requests used only in E2E Tests ( End to End test => test for entire application ) which will be one time only
+    but iwth unit or function test you will make test several times and calling https requests alot of times will cost you money
+    - we will use MSW library ( Mock Service Worker)
+
+*  MSW library ( Mock Service Worker) : 
+    - install ( npm install msw --save-dev )
+    - steps of creating server : 
+        [1] creat folder called mock inside src folder
+        [2] add two files handlers.ts and server.ts ( copied from docs)
+        [3] in handlers.ts : 
+            [a] import { rest } from 'msw'
+            [b] rest.get() accepts two arguments : 1st argument is API URL , 2nd argument is function 
+            and this function accepts 3 arguments (request , response , context) and return response() function
+        [4] in server.ts create server by using setupServer(...handlers) and accepts handlers as an argument
+
+        
