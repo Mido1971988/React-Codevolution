@@ -3,6 +3,7 @@ import { Users } from './Users'
 import { rest } from 'msw'
 import { server } from '../../mocks/server'
 
+
 describe('Users', () => {
     test('renders correctly', () => {
         render(<Users />)
@@ -18,12 +19,12 @@ describe('Users', () => {
 
     test('renders error', async () => {
         server.use(
-        rest.get(
-            'https://jsonplaceholder.typicode.com/users',
-            (req, res, ctx) => {
-            return res(ctx.status(500))
-            }
-        )
+            rest.get(
+                'https://jsonplaceholder.typicode.com/users',
+                (req, res, ctx ) => {
+                    return res(ctx.status(500))
+                }
+            )
         )
         render(<Users />)
         const error = await screen.findByText('Error fetching users')

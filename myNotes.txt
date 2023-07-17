@@ -1885,4 +1885,11 @@ Manual Queries
             and this function accepts 3 arguments (request , response , context) and return response() function
         [4] in server.ts create server by using setupServer(...handlers) and accepts handlers as an argument
 
-        
+* (in Users.test.tsx )to use mocked server we add code to setupTests.ts (copied from docs)
+
+* Error Handling : 
+    we cannot add status(500) in handlers.ts because will give error to all tests using this server
+    but you can use ( server.use(handler) ) (in Users.test.tsx) and add specific handler that has status(500) so will 
+    give error only for this specific test
+
+
