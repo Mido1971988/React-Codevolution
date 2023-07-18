@@ -1892,4 +1892,52 @@ Manual Queries
     but you can use ( server.use(handler) ) (in Users.test.tsx) and add specific handler that has status(500) so will 
     give error only for this specific test
 
+* Static analysis testing
+    Process of verifying that your code meets certain expectations without actually running it
+    All types of tests run the code and then compare the outcome against known expected outputs to see if everything works OK
+    Testing checks if your code works or not, whereas static analysis checks if it is written well or not
 
+    - Ensure consistent style and formatting
+    - Check for common mistakes and possible bugs
+    - Limit the complexity of code and
+    - Verify type consistency
+
+* Static analysis testing tools
+    [1] TypeScript
+    [2] ESlint
+    [3] Prettier
+    [4] Husky
+    [5] lint-staged
+
+* ESlint : 
+    ESLint is a tool for identifying and reporting on patterns found in
+    ECMAScript/JavaScript code, with the goal of making code more consistent and avoiding bugs
+    
+    - steps to install with npm : 
+        [1] add ESlint extension from VSCode
+        [2] npm install --save-dev eslint-plugin-jest-dom
+        [3] add "plugin:jest-dom/recommended" inside "eslintConfig": inside package.json
+
+    for exp. will give you error in application.test.tsx before running the code to tell 
+    you that you should use toBeDisabled() instead of not.toBeEnabled()
+
+    - steps to run lint on terminal : 
+        [1] add "lint":"eslint --ignore-path .gitignore ." inside scripts inside package.json
+        [2] npm run lint
+
+* Prettier : 
+    Prettier is an opinionated code formatter that ensures that all outputted code conforms to a consistent style
+
+    - steps to install with npm : 
+        [1] npm install --save-dev --save-exact prettier
+        [2] add "format": "prettier --ignore-path .gitignore --write \"**/*.{ts,tsx,css,scss}\"" inside scripts inside package.json
+        [3] npm run format
+
+    - note : you can add .prettierrc.json file and then copy some code from docs to configure 
+    prettier like replace single quote to double quote or remove ;
+
+    - note : you can install prettier extension from VSCode to format when you save the file ( be sure that format on save enabled from VSCode setting)
+
+    - note : if you use both eslint and prettier you should do those 2 steps to disable any conflicts between different rules : 
+        [1] npm i eslint-config-prettier
+        [2] add "eslint-config-prettier" inside "eslintConfig": inside package.json
