@@ -1958,9 +1958,8 @@ Manual Queries
     [1] npm install --save-dev lint-staged
     [2] add this to package.json
         "lint-staged": {
-            "*.(ts, tsx)": ["eslint"],
-            "*. (ts, tsx, css,scss)": [''prettier --write"]
-        }
+            "*.tsx": "eslint"
+         }
     [3] write  npx lint-staged inside pre-commit folder in husky folder
 
     * note (to test code before pushing ):
