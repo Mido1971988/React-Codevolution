@@ -1,5 +1,5 @@
-import { render, screen } from "@testing-library/react";
-import { Greet2 } from "./greet2";
+import { render, screen } from '@testing-library/react'
+import { Greet2 } from './greet2'
 
 // test('Greet2 render', () => {
 //     render(<Greet2/>);
@@ -44,10 +44,10 @@ import { Greet2 } from "./greet2";
 // })
 
 // coverageThreshold
-describe("Greet Threshold", () => {
-  test("render", () => {
-    render(<Greet2 />);
-    const textElement = screen.getByText(/Hello/);
-    expect(textElement).toBeInTheDocument();
-  });
-});
+describe('Greet Threshold', () => {
+  test('render', () => {
+    render(<Greet2 />)
+    const textElement = screen.getByText(/Hello/)
+    expect(textElement).toBeInTheDocument()
+  })
+})
