@@ -1941,3 +1941,24 @@ Manual Queries
     - note : if you use both eslint and prettier you should do those 2 steps to disable any conflicts between different rules : 
         [1] npm i eslint-config-prettier
         [2] add "eslint-config-prettier" inside "eslintConfig": inside package.json
+
+* Husky : 
+    Husky is a tool that helps improve your commits and more ( will run npm test when you commit )
+    - steps to install : 
+        [1] npx husky-init && npm install
+        [2] write npm run lint && npm run format inside pre-commit folder in husky folder
+
+    * note : if .git not as same level of package.json 
+    add "prepare": "cd .. && husky install react-testing/.husky" to scripts inside package.json
+
+* add lint-satged to husky (to test only staged files):
+    [1] npm install --save-dev lint-staged
+    [2] add this to package.json
+        "lint-staged": {
+            "*.(ts, tsx)": ["eslint"],
+            "*. (ts, tsx, css,scss)": [''prettier --write"]
+        }
+    [3] write  npx lint-staged inside pre-commit folder in husky folder
+
+    * note (to test code before pushing ):
+        npm husky add .husky/pre-push "npm test -- --watchAll=false"
