@@ -71,7 +71,7 @@
     "prettier": "3.0.0"
   },
   "lint-staged": {
-    "*.(ts, tsx)": ["eslint"],
-    "*. (ts, tsx, css,scss)": ["prettier --write"]
+    "*.(ts, tsx)": "eslint",
+    "*. (ts, tsx, css,scss)": "prettier --write"
   }
 }
