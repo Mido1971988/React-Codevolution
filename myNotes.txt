@@ -1951,8 +1951,9 @@ Manual Queries
     * note : if .git not as same level of package.json :
         [1] npx husky-init && npm install
         [2] add "prepare": "cd .. && husky install react-testing/.husky" to scripts inside package.json
-        [3] change directory in pre-commit file cd react-testing
-        [4] npm install
+        [3] npm install
+        [4] npx husky add .husky/pre-commit "npm test"
+        [5] change directory in pre-commit file cd react-testing
 
 * add lint-satged to husky (to test only staged files):
     [1] npm install --save-dev lint-staged
