@@ -1965,3 +1965,43 @@ Manual Queries
 
     * note (to test code before pushing ):
         npm husky add .husky/pre-push "npm test -- --watchAll=false"
+
+----------------------------------
+
+* Next.js
+
+* Next.js
+    A package that uses React for building user interfaces
+    Loaded with a lot more features that enable you to build full fledged production ready applications.
+    Features exactly like routing, styling, authentication, bundle optimization etc.
+    There's no need to install additional packages. Next.js provides everything for you
+
+* Next.js simplifies the process of building a react application for production
+    1.File based routing
+    2.Pre-rendering ( Generate html for each page in-advance instead of doing that at client side  ( so next.js give you better performance) )
+    3.API routes (  You can create API with next.js ( so you can use next.js as full stack )) 
+    4.Support for CSS modules
+    5.Authentication
+    6.Dev and Prod build system
+
+* to create NEXT app ( npx create-next-app <name of  project>)
+* to run server ( npm run dev)
+
+* Scripts in package.json : 
+    Dev ( run next app in development mode ) (npm run dev)
+    Build ( compile the code and prepare it for production deployment) 
+    Start ( starts compiled application with server side codes ( this is different from react )) 
+    Lint ( to check for error in all files) 
+
+* Routing : 
+    why Routing in Next.js better than React : 
+        - Routing in a React app
+        [1] Install a third party packageroutes.js file to configure the routes
+        [2] For each route, create a component file, export the component, import it in routes.js and configure the new route with a path property
+
+    - Routing in Next.js file based (in about and profile folders in app folder) : 
+        means you create folder of page name inside app folder and put inside it page.tsx file 
+        now routing will be automatically handeled by next.js just go to \about of \profile on browser
+
+        
+
