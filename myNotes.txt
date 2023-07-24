@@ -2003,5 +2003,5 @@ Manual Queries
         means you create folder of page name inside app folder and put inside it page.tsx file 
         now routing will be automatically handeled by next.js just go to \about of \profile on browser
 
-        
+    - nested routing (in first and second folders inside blog folder in app folder) 
 
