@@ -2005,3 +2005,12 @@ Manual Queries
 
     - nested routing (in first and second folders inside blog folder in app folder) 
 
+    -Dynamic Routing (in [id] inside product folder in app folder) : 
+        - in older version of nextjs to get the id number you have typed in URL you will use useRouter Hook 
+        but in new version (13) you can use parameters of component to access the URL and get what you want
+        
+        - to make it dynamic name the folder between [] ( like [id] inside product folder ) now you can write in URL product/(any number you want)
+        and to access the number you wrote (like product/50 ) you can access it from component props ( params.id) id beacuse the folder named [id]
+
+        - if product folder has dynamic folder [id] and folder 100 what will happend when you write product/100 ? 
+            nextjs will choose 100 folder page  not dynamic page
