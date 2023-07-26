@@ -2014,3 +2014,16 @@ Manual Queries
 
         - if product folder has dynamic folder [id] and folder 100 what will happend when you write product/100 ? 
             nextjs will choose 100 folder page  not dynamic page
+    
+    - nested Dynamic Routing (in [reviewId] inside review Folder inside [id] folder inside product folder in app folder) : 
+        you can access id and reviewId from component props ( params.id , params.reviewId) id beacuse the folder named [id] , reviewId because folder named [reviewId]
+
+    
+    - catch all routes (in [...catchAll] folder inside docs folder inside App folder ) : 
+        adding ... will allow you to write any route and will render page.tsx inside [...catchAll] ( like docs/f/d/e/r/t)
+        and you can access the routes by params.catchAll ( array of strings )
+
+* Navigation : 
+    [1] import Link from "next/link"
+    [2] use Link Component and add href attribute to navigate (like in page.tsx in App and page.tsx in product)
+    
