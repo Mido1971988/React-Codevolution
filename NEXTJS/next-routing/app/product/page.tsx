@@ -1,9 +1,15 @@
+import Link from "next/link"
+
 export default function Product() {
     return (
         <>
-            <h2>Product One</h2>
-            <h2>Product Two</h2>
-            <h2>Product Three</h2>
+            <Link href="/">Home</Link>
+            <br/>
+            <Link href="/product/1">Product One</Link>
+            <br/>
+            <Link href="/product/2">Product Two</Link>
+            <br/>
+            <Link href="/product/3">Product Three</Link>
         </>
     )
 }
