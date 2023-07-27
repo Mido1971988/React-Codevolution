@@ -2027,3 +2027,34 @@ Manual Queries
     [1] import Link from "next/link"
     [2] use Link Component and add href attribute to navigate (like in page.tsx in App and page.tsx in product)
     
+* navigate programmatically (navigate to page when you click on buttton for EXP.) (in page.tsx in App folder): 
+    [1] add "use client" to the top of the file
+    [2] import { useRouter } from "next/navigation"
+    [3] const router = useRouter()
+    [4] router.push("./product")
+
+* Custom 404 Page : 
+    create not-found.tsx at App Folder
+
+* Pre-rendering : 
+
+    Next JS generates HTML for each page in advance instead of having it all done by client-side
+
+    Benefits of pre-rendering : 
+    [1] Pre-rendering improves performance
+        * In a React app, you need to wait for the JavaScript to be executed
+        * Perhaps fetch data from an external API and then render the UI
+        * There is a wait time for the user
+        * With a pre-rendered page, the HTML is already generated and loads faster
+    [2] Pre-rendering helps with SEO (search engine optimization)
+        * If you're building a blog or an e-commerce site, SEO is a concern
+        * With a React app, if the search engine hits your page, it only sees a div tag with id equal to root
+        * If search engine hits a pre-rendered page though, all the content is present in the source code which will help index that page
+
+* Static Generation (a type of Pre-rendering) : 
+    Next JS, by default, without any configuration, statically generates every page in our app when we build it for production. 
+    This allows the page to be cached by a CDN and indexed by a search engine.
+    * note : difference between development mode (npm run dev) and production builds : 
+        For production builds, a page will be pre-rendered once when we run the build command 
+        In development mode, the page is pre-rendered for every request you make
+
