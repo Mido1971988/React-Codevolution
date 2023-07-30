@@ -2058,3 +2058,14 @@ Manual Queries
         For production builds, a page will be pre-rendered once when we run the build command 
         In development mode, the page is pre-rendered for every request you make
 
+* Static Generation with data fetching (in page.tsx in users folder):
+    in Nesxtjs 12 or below you will use getStaticProps but in Nextjs 13 getStaticProps not supported
+    in Nextjs 13 : export default function component (UserList) ( async because will fetch inside it directly)
+
+* note : if you want to add components files don’t add it to App folder create another folder (components)
+* note : why console.log will be on terminal not in browser ?
+    if your using next.js 13, every component is a server side component by default which means the component won't run on the browser, 
+    if you want to use client side components write "use client" on the top of your file. ( like User.tsx in components folder )
+    but I won't recommend putting "use client" on top just because you want the information to display in the browser.
+
+    
