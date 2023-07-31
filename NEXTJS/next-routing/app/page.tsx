@@ -16,6 +16,10 @@ export default function Home() {
       <Link href="/product">Products</Link>
       <br/>
       <button onClick={btnHandler}>Place Order</button>
+      <br/>
+      <Link href="/users">Users List</Link>
+      <br/>
+      <Link href="/posts">Posts List</Link>
     </>
   ) 
 }
