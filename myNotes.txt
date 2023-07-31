@@ -2068,4 +2068,15 @@ Manual Queries
     if you want to use client side components write "use client" on the top of your file. ( like User.tsx in components folder )
     but I won't recommend putting "use client" on top just because you want the information to display in the browser.
 
-    
+* building your project : 
+    -Npm run build to build your project ( your builded project is in .next folder ) 
+
+    - Any <Link /> component will be prefetched by default (including the corresponding data) for pages using Static Generation
+        For example : you have home page and have page will do fetch ( page.tsx in users folder ) 
+        When you at home page will not fetch the data untill you go to homepage\users from address bar in browser ( will download html file from server ) 
+        But if you add Link to this users page at home page will fetch data when you open home page and you have two options : 
+            [1] when you go to users page from address bar will download users html file from the server
+            [2] when you click on the link will not download users html file from server will use fetched data to create html at client side
+            * note : both 2 options data will be fetched on home page to be ready if you click on the link
+
+
