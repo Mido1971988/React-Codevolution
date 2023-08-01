@@ -2079,4 +2079,4 @@ Manual Queries
             [2] when you click on the link will not download users html file from server will use fetched data to create html at client side
             * note : both 2 options data will be fetched on home page to be ready if you click on the link
 
-
+******** will learn NextJs 13 from dave Gray Youtube Channel *********
